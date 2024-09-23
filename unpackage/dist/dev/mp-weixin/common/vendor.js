@@ -3547,43 +3547,43 @@ function injectHook(type, hook, target = currentInstance, prepend = false) {
     warn(`${apiName} is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup().`);
   }
 }
-const createHook = (lifecycle) => (hook, target = currentInstance) => (
+const createHook$1 = (lifecycle) => (hook, target = currentInstance) => (
   // post-create lifecycle registrations are noops during SSR (except for serverPrefetch)
   (!isInSSRComponentSetup || lifecycle === "sp") && injectHook(lifecycle, (...args) => hook(...args), target)
 );
-const onBeforeMount = createHook(
+const onBeforeMount = createHook$1(
   "bm"
   /* LifecycleHooks.BEFORE_MOUNT */
 );
-const onMounted = createHook(
+const onMounted = createHook$1(
   "m"
   /* LifecycleHooks.MOUNTED */
 );
-const onBeforeUpdate = createHook(
+const onBeforeUpdate = createHook$1(
   "bu"
   /* LifecycleHooks.BEFORE_UPDATE */
 );
-const onUpdated = createHook(
+const onUpdated = createHook$1(
   "u"
   /* LifecycleHooks.UPDATED */
 );
-const onBeforeUnmount = createHook(
+const onBeforeUnmount = createHook$1(
   "bum"
   /* LifecycleHooks.BEFORE_UNMOUNT */
 );
-const onUnmounted = createHook(
+const onUnmounted = createHook$1(
   "um"
   /* LifecycleHooks.UNMOUNTED */
 );
-const onServerPrefetch = createHook(
+const onServerPrefetch = createHook$1(
   "sp"
   /* LifecycleHooks.SERVER_PREFETCH */
 );
-const onRenderTriggered = createHook(
+const onRenderTriggered = createHook$1(
   "rtg"
   /* LifecycleHooks.RENDER_TRIGGERED */
 );
-const onRenderTracked = createHook(
+const onRenderTracked = createHook$1(
   "rtc"
   /* LifecycleHooks.RENDER_TRACKED */
 );
@@ -5371,14 +5371,14 @@ function findComponentPublicInstance(mpComponents, id) {
   }
   return null;
 }
-function setTemplateRef({ r, f }, refValue, setupState) {
+function setTemplateRef({ r, f: f2 }, refValue, setupState) {
   if (isFunction(r)) {
     r(refValue, {});
   } else {
     const _isString = isString(r);
     const _isRef = isRef(r);
     if (_isString || _isRef) {
-      if (f) {
+      if (f2) {
         if (!_isRef) {
           return;
         }
@@ -5961,6 +5961,38 @@ function patchStopImmediatePropagation(e2, value) {
     return value;
   }
 }
+function vFor(source, renderItem) {
+  let ret;
+  if (isArray(source) || isString(source)) {
+    ret = new Array(source.length);
+    for (let i = 0, l = source.length; i < l; i++) {
+      ret[i] = renderItem(source[i], i, i);
+    }
+  } else if (typeof source === "number") {
+    if (!Number.isInteger(source)) {
+      warn(`The v-for range expect an integer value but got ${source}.`);
+      return [];
+    }
+    ret = new Array(source);
+    for (let i = 0; i < source; i++) {
+      ret[i] = renderItem(i + 1, i, i);
+    }
+  } else if (isObject(source)) {
+    if (source[Symbol.iterator]) {
+      ret = Array.from(source, (item, i) => renderItem(item, i, i));
+    } else {
+      const keys = Object.keys(source);
+      ret = new Array(keys.length);
+      for (let i = 0, l = keys.length; i < l; i++) {
+        const key = keys[i];
+        ret[i] = renderItem(source[key], key, i);
+      }
+    }
+  } else {
+    ret = [];
+  }
+  return ret;
+}
 function stringifyStyle(value) {
   if (isString(value)) {
     return value;
@@ -5977,12 +6009,18 @@ function stringify(styles) {
   }
   return ret;
 }
+function setRef(ref2, id, opts = {}) {
+  const { $templateRefs } = getCurrentInstance();
+  $templateRefs.push({ i: id, r: ref2, k: opts.k, f: opts.f });
+}
 const o = (value, key) => vOn(value, key);
+const f = (source, renderItem) => vFor(source, renderItem);
 const s = (value) => stringifyStyle(value);
 const e = (target, ...sources) => extend(target, ...sources);
 const n = (value) => normalizeClass(value);
 const t = (val) => toDisplayString(val);
 const p = (props) => renderProps(props);
+const sr = (ref2, id, opts) => setRef(ref2, id, opts);
 function createApp$1(rootComponent, rootProps = null) {
   rootComponent && (rootComponent.mpType = "app");
   return createVueApp(rootComponent, rootProps).use(plugin);
@@ -6812,15 +6850,26 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createPluginApp = global.createPluginApp = createPluginApp;
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
+const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
+  !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
+};
+const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
+const onPullDownRefresh = /* @__PURE__ */ createHook(ON_PULL_DOWN_REFRESH);
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
 exports.e = e;
+exports.f = f;
 exports.index = index;
+exports.isRef = isRef;
 exports.n = n;
+exports.nextTick$1 = nextTick$1;
 exports.o = o;
+exports.onLoad = onLoad;
+exports.onPullDownRefresh = onPullDownRefresh;
 exports.p = p;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
+exports.sr = sr;
 exports.t = t;
 exports.unref = unref;
