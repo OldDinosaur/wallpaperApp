@@ -6,15 +6,15 @@
 				@search="searchClick"></u-search>
 			<!-- 轮播图 -->
 			<swiper1 ref="swiper1Ref" />
-			<view >
+			<view>
 				<!-- 更多 -->
 				<u-card v-for="(item,index) in picList" :key="item.tab" :title="item.tab" :show-foot='false'
 					sub-title="查看更多">
 					<template v-slot:body>
 						<view class="tap-pic ">
-							<view class="pic-item" v-for="(pic,index) in item.list">
+							<view class="pic-item" v-for="(pic,index1) in item.list">
 								<u-image width="100%" height="300rpx" :src="pic.url"
-									@click="showPic(pic.url)"></u-image>
+									@click="showPic(pic.url,index1,item.list)"></u-image>
 							</view>
 						</view>
 					</template>
@@ -23,14 +23,6 @@
 			<!-- <u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton> -->
 			<!-- APP中底部与自定义导航栏断开 -->
 			<view style="height: 100rpx;"></view>
-			<!-- 点击图片显示并放大 -->
-			<u-mask :show="show" @click="show = false">
-				<view class="warp">
-					<view class="rect" @click="show = false">
-						<u-image width="100%" height="100vh" mode='aspectFit' :src="showSrc"></u-image>
-					</view>
-				</view>
-			</u-mask>
 		</view>
 		<u-tabbar v-model="current" :list="list"></u-tabbar>
 	</view>
@@ -40,17 +32,17 @@
 	import request from '@/utils/request.js'
 	import {
 		onPullDownRefresh,
-		onLoad
+		onLoad,
 	} from '@dcloudio/uni-app';
 	import swiper1 from './swiper1.vue'
 	import {
 		ref,
 		reactive,
+		defineExpose,
 		nextTick
 	} from 'vue'
 
 	let loading = ref(false)
-
 	let keyword = ref('爆照的老恐龙')
 	let swiper1Ref = ref()
 	// 下拉刷新
@@ -98,11 +90,50 @@
 		getAllTags()
 	})
 	/* 点击显示图片 */
-	let show = ref(false)
-	let showSrc = ref()
-	const showPic = (item) => {
-		show.value = true
-		showSrc.value = item
+	const showPic = (item, index, list) => {
+		let picList = []
+		for (let item of list) {
+			picList.push(item.url)
+		}
+		uni.previewImage({
+			current: index, // 当前显示图片索引
+			urls: picList, // 需要预览的图片http链接列表
+			longPressActions: {
+				itemList: ['保存图片'],
+				success: function(data) {
+					console.log(data);
+					if (data.tapIndex === 0) {
+						savePic(item)
+					}
+				},
+				fail: function(err) {
+					console.log(err.errMsg);
+				}
+			}
+		});
+	}
+	/* 保存图片 */
+	const savePic = (src) => {
+		uni.downloadFile({
+			url: src,
+			success(res) {
+				uni.saveImageToPhotosAlbum({
+					filePath: res.tempFilePath,
+					success() {
+						uni.showToast({
+							title: '保存成功',
+							icon: "succeed"
+						})
+					},
+					fail(err) {
+						uni.showToast({
+							title: '保存失败',
+							icon: "error"
+						})
+					}
+				})
+			}
+		})
 	}
 
 	/* 搜索 */

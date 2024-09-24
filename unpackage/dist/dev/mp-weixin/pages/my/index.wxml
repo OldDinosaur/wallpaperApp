@@ -1,1 +1,1 @@
-<view><view class="text-area"> 我的 </view><u-tabbar wx:if="{{b}}" u-i="5884c7f8-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></u-tabbar></view>
+<view><view class="u-page text-area"> 我的 <view style="height:100rpx"></view></view><u-tabbar wx:if="{{b}}" u-i="5884c7f8-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></u-tabbar></view>

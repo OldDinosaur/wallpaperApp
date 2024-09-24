@@ -55,7 +55,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$c = {
+  const _sfc_main$b = {
     name: "u-icon",
     emits: ["click", "touchstart"],
     props: {
@@ -260,7 +260,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -313,8 +313,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$8], ["__scopeId", "data-v-5de67484"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-icon/u-icon.vue"]]);
-  const _sfc_main$b = {
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$7], ["__scopeId", "data-v-5de67484"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-icon/u-icon.vue"]]);
+  const _sfc_main$a = {
     name: "u-search",
     emits: ["update:modelValue", "input", "change", "search", "custom", "clear", "focus", "blur"],
     props: {
@@ -526,7 +526,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$3);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -611,8 +611,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$7], ["__scopeId", "data-v-3cb29fc1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-search/u-search.vue"]]);
-  const _sfc_main$a = {
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$6], ["__scopeId", "data-v-3cb29fc1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-search/u-search.vue"]]);
+  const _sfc_main$9 = {
     name: "u-image",
     emits: ["click", "error", "load"],
     props: {
@@ -775,7 +775,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$3);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -844,8 +844,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$6], ["__scopeId", "data-v-6ff2fb1e"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-image/u-image.vue"]]);
-  const _sfc_main$9 = {
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$5], ["__scopeId", "data-v-6ff2fb1e"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-image/u-image.vue"]]);
+  const _sfc_main$8 = {
     name: "u-card",
     emits: ["click", "head-click", "body-click", "foot-click"],
     props: {
@@ -989,7 +989,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1103,121 +1103,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$5], ["__scopeId", "data-v-797f62c7"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-card/u-card.vue"]]);
-  const _sfc_main$8 = {
-    name: "u-mask",
-    emits: ["click"],
-    props: {
-      // 是否显示遮罩
-      show: {
-        type: Boolean,
-        default: false
-      },
-      // 层级z-index
-      zIndex: {
-        type: [Number, String],
-        default: ""
-      },
-      // 用户自定义样式
-      customStyle: {
-        type: Object,
-        default() {
-          return {};
-        }
-      },
-      // 遮罩的动画样式， 是否使用使用zoom进行scale进行缩放
-      zoom: {
-        type: Boolean,
-        default: true
-      },
-      // 遮罩的过渡时间，单位为ms
-      duration: {
-        type: [Number, String],
-        default: 300
-      },
-      // 是否可以通过点击遮罩进行关闭
-      maskClickAble: {
-        type: Boolean,
-        default: true
-      },
-      // 遮罩的模糊度
-      blur: {
-        type: [Number, String],
-        default: 0
-      }
-    },
-    data() {
-      return {
-        zoomStyle: {
-          transform: ""
-        },
-        scale: "scale(1.2, 1.2)"
-      };
-    },
-    watch: {
-      show(n) {
-        if (n && this.zoom) {
-          this.zoomStyle.transform = "scale(1, 1)";
-        } else if (!n && this.zoom) {
-          this.zoomStyle.transform = this.scale;
-        }
-      }
-    },
-    computed: {
-      maskStyle() {
-        let style = {};
-        style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-        if (this.show)
-          style.zIndex = this.zIndex ? this.zIndex : this.$u.zIndex.mask;
-        else
-          style.zIndex = -1;
-        style.transition = `all ${this.duration / 1e3}s ease-in-out`;
-        if (Object.keys(this.customStyle).length)
-          style = {
-            ...style,
-            ...this.customStyle
-          };
-        return style;
-      },
-      filterStyle() {
-        let { blur } = this;
-        let style = {};
-        if (blur) {
-          style.backdropFilter = `blur(${blur}rpx)`;
-        }
-        return style;
-      }
-    },
-    methods: {
-      click() {
-        if (!this.maskClickAble)
-          return;
-        this.$emit("click");
-      }
-    }
-  };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        class: vue.normalizeClass(["u-mask", {
-          "u-mask-zoom": $props.zoom,
-          "u-mask-show": $props.show
-        }]),
-        "hover-stop-propagation": "",
-        style: vue.normalizeStyle([$options.maskStyle, $data.zoomStyle, $options.filterStyle]),
-        onClick: _cache[0] || (_cache[0] = (...args) => $options.click && $options.click(...args)),
-        onTouchmove: _cache[1] || (_cache[1] = vue.withModifiers(() => {
-        }, ["stop", "prevent"]))
-      },
-      [
-        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ],
-      38
-      /* CLASS, STYLE, HYDRATE_EVENTS */
-    );
-  }
-  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$4], ["__scopeId", "data-v-b3b508a8"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-mask/u-mask.vue"]]);
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$4], ["__scopeId", "data-v-797f62c7"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-card/u-card.vue"]]);
   const _sfc_main$7 = {
     name: "u-badge",
     props: {
@@ -2080,6 +1966,51 @@ if (uni.restoreGlobal) {
           loading.value = false;
         });
       };
+      const showPic = (index) => {
+        let picList = [];
+        for (let item of swiperList.value) {
+          picList.push(item.image);
+        }
+        uni.previewImage({
+          current: index,
+          // 当前显示图片索引
+          urls: picList,
+          // 需要预览的图片http链接列表
+          longPressActions: {
+            itemList: ["保存图片"],
+            success: function(data) {
+              if (data.tapIndex === 0) {
+                savePic(swiperList.value[index].image);
+              }
+            },
+            fail: function(err) {
+              formatAppLog("log", "at pages/home/swiper1.vue:52", err.errMsg);
+            }
+          }
+        });
+      };
+      const savePic = (src) => {
+        uni.downloadFile({
+          url: src,
+          success(res) {
+            uni.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success() {
+                uni.showToast({
+                  title: "保存成功",
+                  icon: "succeed"
+                });
+              },
+              fail(err) {
+                uni.showToast({
+                  title: "保存失败",
+                  icon: "error"
+                });
+              }
+            });
+          }
+        });
+      };
       expose({
         getData
         // 暴露方法
@@ -2090,7 +2021,8 @@ if (uni.restoreGlobal) {
           vue.createVNode(_component_u_swiper, {
             list: vue.unref(swiperList),
             effect3d: true,
-            height: 400
+            height: 400,
+            onClick: showPic
           }, null, 8, ["list"]),
           vue.createCommentVNode(' <u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton> ')
         ]);
@@ -2144,14 +2076,54 @@ if (uni.restoreGlobal) {
         });
         getAllTags();
       });
-      let show = vue.ref(false);
-      let showSrc = vue.ref();
-      const showPic = (item) => {
-        show.value = true;
-        showSrc.value = item;
+      const showPic = (item, index, list2) => {
+        let picList2 = [];
+        for (let item2 of list2) {
+          picList2.push(item2.url);
+        }
+        uni.previewImage({
+          current: index,
+          // 当前显示图片索引
+          urls: picList2,
+          // 需要预览的图片http链接列表
+          longPressActions: {
+            itemList: ["保存图片"],
+            success: function(data) {
+              formatAppLog("log", "at pages/home/index.vue:104", data);
+              if (data.tapIndex === 0) {
+                savePic(item);
+              }
+            },
+            fail: function(err) {
+              formatAppLog("log", "at pages/home/index.vue:110", err.errMsg);
+            }
+          }
+        });
+      };
+      const savePic = (src) => {
+        uni.downloadFile({
+          url: src,
+          success(res) {
+            uni.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success() {
+                uni.showToast({
+                  title: "保存成功",
+                  icon: "succeed"
+                });
+              },
+              fail(err) {
+                uni.showToast({
+                  title: "保存失败",
+                  icon: "error"
+                });
+              }
+            });
+          }
+        });
       };
       const searchClick = (val) => {
-        formatAppLog("log", "at pages/home/index.vue:110", keyword.value);
+        formatAppLog("log", "at pages/home/index.vue:141", keyword.value);
         if (keyword.value == "老恐龙是帅哥") {
           picList.value = [];
           for (let item of nsfwList.value) {
@@ -2208,7 +2180,6 @@ if (uni.restoreGlobal) {
         const _component_u_search = resolveEasycom(vue.resolveDynamicComponent("u-search"), __easycom_0$2);
         const _component_u_image = resolveEasycom(vue.resolveDynamicComponent("u-image"), __easycom_1$1);
         const _component_u_card = resolveEasycom(vue.resolveDynamicComponent("u-card"), __easycom_2);
-        const _component_u_mask = resolveEasycom(vue.resolveDynamicComponent("u-mask"), __easycom_3);
         const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$1);
         return vue.openBlock(), vue.createElementBlock("view", null, [
           vue.createElementVNode("view", { class: "u-page" }, [
@@ -2250,13 +2221,13 @@ if (uni.restoreGlobal) {
                         (vue.openBlock(true), vue.createElementBlock(
                           vue.Fragment,
                           null,
-                          vue.renderList(item.list, (pic, index2) => {
+                          vue.renderList(item.list, (pic, index1) => {
                             return vue.openBlock(), vue.createElementBlock("view", { class: "pic-item" }, [
                               vue.createVNode(_component_u_image, {
                                 width: "100%",
                                 height: "300rpx",
                                 src: pic.url,
-                                onClick: ($event) => showPic(pic.url)
+                                onClick: ($event) => showPic(pic.url, index1, item.list)
                               }, null, 8, ["src", "onClick"])
                             ]);
                           }),
@@ -2275,34 +2246,11 @@ if (uni.restoreGlobal) {
             ]),
             vue.createCommentVNode(' <u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton> '),
             vue.createCommentVNode(" APP中底部与自定义导航栏断开 "),
-            vue.createElementVNode("view", { style: { "height": "100rpx" } }),
-            vue.createCommentVNode(" 点击图片显示并放大 "),
-            vue.createVNode(_component_u_mask, {
-              show: vue.unref(show),
-              onClick: _cache[2] || (_cache[2] = ($event) => vue.isRef(show) ? show.value = false : show = false)
-            }, {
-              default: vue.withCtx(() => [
-                vue.createElementVNode("view", { class: "warp" }, [
-                  vue.createElementVNode("view", {
-                    class: "rect",
-                    onClick: _cache[1] || (_cache[1] = ($event) => vue.isRef(show) ? show.value = false : show = false)
-                  }, [
-                    vue.createVNode(_component_u_image, {
-                      width: "100%",
-                      height: "100vh",
-                      mode: "aspectFit",
-                      src: vue.unref(showSrc)
-                    }, null, 8, ["src"])
-                  ])
-                ])
-              ]),
-              _: 1
-              /* STABLE */
-            }, 8, ["show"])
+            vue.createElementVNode("view", { style: { "height": "100rpx" } })
           ]),
           vue.createVNode(_component_u_tabbar, {
             modelValue: vue.unref(current),
-            "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => vue.isRef(current) ? current.value = $event : current = $event),
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => vue.isRef(current) ? current.value = $event : current = $event),
             list: vue.unref(list)
           }, null, 8, ["modelValue", "list"])
         ]);

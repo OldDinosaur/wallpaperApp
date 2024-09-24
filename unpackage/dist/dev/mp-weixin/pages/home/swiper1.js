@@ -32,13 +32,59 @@ const _sfc_main = {
         loading.value = false;
       });
     };
+    const showPic = (index) => {
+      let picList = [];
+      for (let item of swiperList.value) {
+        picList.push(item.image);
+      }
+      common_vendor.index.previewImage({
+        current: index,
+        // 当前显示图片索引
+        urls: picList,
+        // 需要预览的图片http链接列表
+        longPressActions: {
+          itemList: ["保存图片"],
+          success: function(data) {
+            if (data.tapIndex === 0) {
+              savePic(swiperList.value[index].image);
+            }
+          },
+          fail: function(err) {
+            console.log(err.errMsg);
+          }
+        }
+      });
+    };
+    const savePic = (src) => {
+      common_vendor.index.downloadFile({
+        url: src,
+        success(res) {
+          common_vendor.index.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,
+            success() {
+              common_vendor.index.showToast({
+                title: "保存成功",
+                icon: "succeed"
+              });
+            },
+            fail(err) {
+              common_vendor.index.showToast({
+                title: "保存失败",
+                icon: "error"
+              });
+            }
+          });
+        }
+      });
+    };
     expose({
       getData
       // 暴露方法
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.p({
+        a: common_vendor.o(showPic),
+        b: common_vendor.p({
           list: common_vendor.unref(swiperList),
           effect3d: true,
           height: 400

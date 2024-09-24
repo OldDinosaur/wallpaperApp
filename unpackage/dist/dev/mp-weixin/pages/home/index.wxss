@@ -1,4 +1,8 @@
 
+.u-page {
+		height: calc(100vh - 100rpx) !important;
+		/* overflow: auto; */
+}
 .content {
 		display: flex;
 		flex-direction: column;
@@ -16,6 +20,7 @@
 		flex: 0 0 auto;
 		width: 250rpx;
 		margin-right: 10rpx;
+		overflow: hidden;
 }
 .logo {
 		height: 200rpx;
@@ -41,5 +46,6 @@
 }
 .rect {
 		width: 100%;
-		height: auto;
+		overflow: hidden;
+		/* height: auto; */
 }
