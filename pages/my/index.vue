@@ -1,7 +1,9 @@
 <template>
 	<view>
-		<view class="text-area">
+		<view class="u-page text-area">
 			我的
+			<!-- APP中底部与自定义导航栏断开 -->
+			<view style="height: 100rpx;"></view>
 		</view>
 		<u-tabbar v-model="current" :list="list"></u-tabbar>
 	</view>

@@ -1,0 +1,1 @@
+<view class="u-skeleton data-v-a8891fe5"><u-swiper wx:if="{{a}}" class="data-v-a8891fe5" u-i="a8891fe5-0" bind:__l="__l" u-p="{{a}}"></u-swiper></view>

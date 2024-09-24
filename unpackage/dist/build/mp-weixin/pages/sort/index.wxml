@@ -1,0 +1,1 @@
+<view><view class="text-area"> 分类 </view><u-tabbar wx:if="{{b}}" u-i="2f95bb94-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></u-tabbar></view>

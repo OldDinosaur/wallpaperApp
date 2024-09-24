@@ -1,12 +1,12 @@
 <template>
 	<view>
-		<view class="u-page ">
+		<view class="u-page">
 			<!-- 搜索框 -->
-			<u-search margin='10rpx' :show-action='false' placeholder="爆照的老恐龙" :clearabled="true"
-				v-model="keyword" @search="searchClick"></u-search>
+			<u-search margin='10rpx' :show-action='false' placeholder="爆照的老恐龙" :clearabled="true" v-model="keyword"
+				@search="searchClick"></u-search>
 			<!-- 轮播图 -->
 			<swiper1 ref="swiper1Ref" />
-			<view class="u-skeleton">
+			<view >
 				<!-- 更多 -->
 				<u-card v-for="(item,index) in picList" :key="item.tab" :title="item.tab" :show-foot='false'
 					sub-title="查看更多">
@@ -20,8 +20,9 @@
 					</template>
 				</u-card>
 			</view>
-			<u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton>
-
+			<!-- <u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton> -->
+			<!-- APP中底部与自定义导航栏断开 -->
+			<view style="height: 100rpx;"></view>
 			<!-- 点击图片显示并放大 -->
 			<u-mask :show="show" @click="show = false">
 				<view class="warp">
@@ -99,43 +100,43 @@
 	/* 点击显示图片 */
 	let show = ref(false)
 	let showSrc = ref()
-	const showPic =(item)=> {
+	const showPic = (item) => {
 		show.value = true
 		showSrc.value = item
 	}
-	
+
 	/* 搜索 */
-const searchClick = (val)=>{
-	console.log(keyword.value);
-	if(keyword.value=='老恐龙是帅哥'){
-		//获取versatile类型的图片
-		picList.value = []
-		for (let item of nsfwList.value) {
-			request.request('https://api.waifu.im/search', 'get', {
-				'included_tags': item,
-				'limit': 6,
-			}).then(res => {
-				picList.value.push({
-					tab: item,
-					list: res.images
+	const searchClick = (val) => {
+		console.log(keyword.value);
+		if (keyword.value == '老恐龙是帅哥') {
+			//获取versatile类型的图片
+			picList.value = []
+			for (let item of nsfwList.value) {
+				request.request('https://api.waifu.im/search', 'get', {
+					'included_tags': item,
+					'limit': 6,
+				}).then(res => {
+					picList.value.push({
+						tab: item,
+						list: res.images
+					})
 				})
-			})
-		}
-	}else{
-		picList.value = []
-		for (let item of versatileList.value) {
-			request.request('https://api.waifu.im/search', 'get', {
-				'included_tags': item,
-				'limit': 6,
-			}).then(res => {
-				picList.value.push({
-					tab: item,
-					list: res.images
+			}
+		} else {
+			picList.value = []
+			for (let item of versatileList.value) {
+				request.request('https://api.waifu.im/search', 'get', {
+					'included_tags': item,
+					'limit': 6,
+				}).then(res => {
+					picList.value.push({
+						tab: item,
+						list: res.images
+					})
 				})
-			})
+			}
 		}
 	}
-}
 	//底部tap
 	let list = ref([{
 			iconPath: "home",
@@ -166,6 +167,11 @@ const searchClick = (val)=>{
 
 
 <style>
+	.u-page {
+		height: calc(100vh - 100rpx) !important;
+		/* overflow: auto; */
+	}
+
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -185,6 +191,7 @@ const searchClick = (val)=>{
 		flex: 0 0 auto;
 		width: 250rpx;
 		margin-right: 10rpx;
+		overflow: hidden;
 	}
 
 	.logo {
@@ -215,6 +222,7 @@ const searchClick = (val)=>{
 
 	.rect {
 		width: 100%;
-		height: auto;
+		overflow: hidden;
+		/* height: auto; */
 	}
 </style>
