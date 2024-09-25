@@ -32,6 +32,8 @@ if (uni.restoreGlobal) {
 (function(vue, shared) {
   "use strict";
   const ON_LOAD = "onLoad";
+  const ON_PAGE_SCROLL = "onPageScroll";
+  const ON_REACH_BOTTOM = "onReachBottom";
   const ON_PULL_DOWN_REFRESH = "onPullDownRefresh";
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
@@ -47,6 +49,8 @@ if (uni.restoreGlobal) {
     !vue.isInSSRComponentSetup && vue.injectHook(lifecycle, hook, target);
   };
   const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
+  const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
+  const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
   const onPullDownRefresh = /* @__PURE__ */ createHook(ON_PULL_DOWN_REFRESH);
   const _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
@@ -55,7 +59,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$b = {
+  const _sfc_main$j = {
     name: "u-icon",
     emits: ["click", "touchstart"],
     props: {
@@ -260,7 +264,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -313,8 +317,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$7], ["__scopeId", "data-v-5de67484"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-icon/u-icon.vue"]]);
-  const _sfc_main$a = {
+  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$e], ["__scopeId", "data-v-5de67484"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-icon/u-icon.vue"]]);
+  const _sfc_main$i = {
     name: "u-search",
     emits: ["update:modelValue", "input", "change", "search", "custom", "clear", "focus", "blur"],
     props: {
@@ -526,8 +530,8 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$3);
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$6);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -611,8 +615,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$6], ["__scopeId", "data-v-3cb29fc1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-search/u-search.vue"]]);
-  const _sfc_main$9 = {
+  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$d], ["__scopeId", "data-v-3cb29fc1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-search/u-search.vue"]]);
+  const _sfc_main$h = {
     name: "u-image",
     emits: ["click", "error", "load"],
     props: {
@@ -775,8 +779,8 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$3);
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$6);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -844,8 +848,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$5], ["__scopeId", "data-v-6ff2fb1e"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-image/u-image.vue"]]);
-  const _sfc_main$8 = {
+  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$c], ["__scopeId", "data-v-6ff2fb1e"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-image/u-image.vue"]]);
+  const _sfc_main$g = {
     name: "u-card",
     emits: ["click", "head-click", "body-click", "foot-click"],
     props: {
@@ -989,7 +993,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1103,8 +1107,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$4], ["__scopeId", "data-v-797f62c7"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-card/u-card.vue"]]);
-  const _sfc_main$7 = {
+  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$b], ["__scopeId", "data-v-797f62c7"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-card/u-card.vue"]]);
+  const _sfc_main$f = {
     name: "u-badge",
     props: {
       // primary,warning,success,error,info
@@ -1207,7 +1211,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return $options.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1231,8 +1235,8 @@ if (uni.restoreGlobal) {
       /* TEXT, CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$3], ["__scopeId", "data-v-f84de764"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-badge/u-badge.vue"]]);
-  const _sfc_main$6 = {
+  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$a], ["__scopeId", "data-v-f84de764"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-badge/u-badge.vue"]]);
+  const _sfc_main$e = {
     emits: ["update:modelValue", "input", "change"],
     props: {
       // 通过v-model绑定current值
@@ -1411,9 +1415,9 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$3);
-    const _component_u_badge = resolveEasycom(vue.resolveDynamicComponent("u-badge"), __easycom_1);
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$6);
+    const _component_u_badge = resolveEasycom(vue.resolveDynamicComponent("u-badge"), __easycom_1$2);
     return $props.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1537,7 +1541,7 @@ if (uni.restoreGlobal) {
       /* HYDRATE_EVENTS */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$2], ["__scopeId", "data-v-d1ac5dd3"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar.vue"]]);
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$9], ["__scopeId", "data-v-d1ac5dd3"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar.vue"]]);
   const request = (url2, method = "GET", data = {}, header = {}) => {
     return new Promise((resolve, reject) => {
       header["Authorization"] = uni.getStorageSync("token");
@@ -1629,7 +1633,7 @@ if (uni.restoreGlobal) {
     });
   };
   const request$1 = { uploadFile, request, form, post, loadPostData, loadFormData, loadPostCallback };
-  const _sfc_main$5 = {
+  const _sfc_main$d = {
     name: "u-swiper",
     emits: ["click", "change"],
     props: {
@@ -1790,7 +1794,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1942,8 +1946,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$1], ["__scopeId", "data-v-d9fea6b1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-swiper/u-swiper.vue"]]);
-  const _sfc_main$4 = {
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$8], ["__scopeId", "data-v-d9fea6b1"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-swiper/u-swiper.vue"]]);
+  const _sfc_main$c = {
     __name: "swiper1",
     setup(__props, { expose }) {
       let swiperList = vue.ref([]);
@@ -2016,7 +2020,7 @@ if (uni.restoreGlobal) {
         // 暴露方法
       });
       return (_ctx, _cache) => {
-        const _component_u_swiper = resolveEasycom(vue.resolveDynamicComponent("u-swiper"), __easycom_0);
+        const _component_u_swiper = resolveEasycom(vue.resolveDynamicComponent("u-swiper"), __easycom_0$3);
         return vue.openBlock(), vue.createElementBlock("view", { class: "u-skeleton" }, [
           vue.createVNode(_component_u_swiper, {
             list: vue.unref(swiperList),
@@ -2029,8 +2033,8 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  const swiper1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-d448d23c"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/swiper1.vue"]]);
-  const _sfc_main$3 = {
+  const swiper1 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-d448d23c"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/swiper1.vue"]]);
+  const _sfc_main$b = {
     __name: "index",
     setup(__props) {
       let loading = vue.ref(false);
@@ -2123,7 +2127,6 @@ if (uni.restoreGlobal) {
         });
       };
       const searchClick = (val) => {
-        formatAppLog("log", "at pages/home/index.vue:141", keyword.value);
         if (keyword.value == "老恐龙是帅哥") {
           picList.value = [];
           for (let item of nsfwList.value) {
@@ -2152,6 +2155,14 @@ if (uni.restoreGlobal) {
           }
         }
       };
+      const checkMore = (item) => {
+        uni.navigateTo({
+          url: "/pages/common/moreList",
+          success: function(res) {
+            res.eventChannel.emit("acceptDataFromOpenerPage", { tab: item.tab });
+          }
+        });
+      };
       let list = vue.ref([
         {
           iconPath: "home",
@@ -2177,10 +2188,10 @@ if (uni.restoreGlobal) {
       ]);
       let current = vue.ref(0);
       return (_ctx, _cache) => {
-        const _component_u_search = resolveEasycom(vue.resolveDynamicComponent("u-search"), __easycom_0$2);
-        const _component_u_image = resolveEasycom(vue.resolveDynamicComponent("u-image"), __easycom_1$1);
-        const _component_u_card = resolveEasycom(vue.resolveDynamicComponent("u-card"), __easycom_2);
-        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$1);
+        const _component_u_search = resolveEasycom(vue.resolveDynamicComponent("u-search"), __easycom_0$5);
+        const _component_u_image = resolveEasycom(vue.resolveDynamicComponent("u-image"), __easycom_1$3);
+        const _component_u_card = resolveEasycom(vue.resolveDynamicComponent("u-card"), __easycom_2$1);
+        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$4);
         return vue.openBlock(), vue.createElementBlock("view", null, [
           vue.createElementVNode("view", { class: "u-page" }, [
             vue.createCommentVNode(" 搜索框 "),
@@ -2214,7 +2225,8 @@ if (uni.restoreGlobal) {
                     key: item.tab,
                     title: item.tab,
                     "show-foot": false,
-                    "sub-title": "查看更多"
+                    "sub-title": "查看更多",
+                    onHeadClick: ($event) => checkMore(item)
                   }, {
                     body: vue.withCtx(() => [
                       vue.createElementVNode("view", { class: "tap-pic" }, [
@@ -2238,7 +2250,7 @@ if (uni.restoreGlobal) {
                     ]),
                     _: 2
                     /* DYNAMIC */
-                  }, 1032, ["title"]);
+                  }, 1032, ["title", "onHeadClick"]);
                 }),
                 128
                 /* KEYED_FRAGMENT */
@@ -2257,8 +2269,13 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/index.vue"]]);
-  const _sfc_main$2 = {
+  const PagesHomeIndex = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/index.vue"]]);
+  const _sfc_main$a = {};
+  function _sfc_render$7(_ctx, _cache) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "" }, " 测试 ");
+  }
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$7], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/components/test/test.vue"]]);
+  const _sfc_main$9 = {
     __name: "index",
     setup(__props) {
       let list = vue.ref([
@@ -2286,12 +2303,14 @@ if (uni.restoreGlobal) {
       ]);
       let current = vue.ref(0);
       return (_ctx, _cache) => {
-        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$1);
+        const _component_test = resolveEasycom(vue.resolveDynamicComponent("test"), __easycom_0$2);
+        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$4);
         return vue.openBlock(), vue.createElementBlock("view", null, [
           vue.createElementVNode("view", { class: "u-page text-area" }, [
             vue.createTextVNode(" 分类 "),
             vue.createCommentVNode(" APP中底部与自定义导航栏断开 "),
-            vue.createElementVNode("view", { style: { "height": "100rpx" } })
+            vue.createElementVNode("view", { style: { "height": "100rpx" } }),
+            vue.createVNode(_component_test)
           ]),
           vue.createVNode(_component_u_tabbar, {
             modelValue: vue.unref(current),
@@ -2302,8 +2321,8 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  const PagesSortIndex = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/sort/index.vue"]]);
-  const _sfc_main$1 = {
+  const PagesSortIndex = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/sort/index.vue"]]);
+  const _sfc_main$8 = {
     __name: "index",
     setup(__props) {
       let list = vue.ref([
@@ -2331,11 +2350,11 @@ if (uni.restoreGlobal) {
       ]);
       let current = vue.ref(0);
       return (_ctx, _cache) => {
-        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$1);
+        const _component_u_tabbar = resolveEasycom(vue.resolveDynamicComponent("u-tabbar"), __easycom_0$4);
         return vue.openBlock(), vue.createElementBlock("view", null, [
           vue.createElementVNode("view", { class: "u-page text-area" }, [
-            vue.createTextVNode(" 我的 "),
             vue.createCommentVNode(" APP中底部与自定义导航栏断开 "),
+            vue.createTextVNode(" 关于：所有数据均来自网站（https://github.com/Waifu-pics/waifu-api）的 api 提供，如有侵权，请联系开发者(1850110843@qq.com)删除。 "),
             vue.createElementVNode("view", { style: { "height": "100rpx" } })
           ]),
           vue.createVNode(_component_u_tabbar, {
@@ -2347,10 +2366,1008 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  const PagesMyIndex = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/my/index.vue"]]);
+  const PagesMyIndex = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/my/index.vue"]]);
+  const _sfc_main$7 = {
+    name: "u-lazy-load",
+    emits: ["click", "load", "error"],
+    props: {
+      index: {
+        type: [Number, String]
+      },
+      // 要显示的图片
+      image: {
+        type: String,
+        default: ""
+      },
+      // 图片裁剪模式
+      imgMode: {
+        type: String,
+        default: "widthFix"
+      },
+      // 占位图片路径
+      loadingImg: {
+        type: String,
+        default: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAMAAAC3Ycb+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM0QjNBQjkyQUQ2MTFFQTlCNUQ4RTIzNDE5RUIxNjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM0QjNBQkEyQUQ2MTFFQTlCNUQ4RTIzNDE5RUIxNjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzRCM0FCNzJBRDYxMUVBOUI1RDhFMjM0MTlFQjE2NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzRCM0FCODJBRDYxMUVBOUI1RDhFMjM0MTlFQjE2NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtRHfPcAAAAzUExURZWVldfX18PDw62trZubm9zc3Li4uKGhoebm5tLS0uHh4c3Nzaenp729vcjIyLKysuvr6141L40AAAcXSURBVHja7NzZlqpGAEBR5lG0//9rIw7IJKJi4or7PGTdtN10wr5SVAEGf/qqArsAiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAIiIAAERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAgAgJEQIAICBABERAg+nmQFMi5Jis+sIniED23jSzIgLTtg2D//iYme/8QBM/9lQ+CAEhbNLM3N9hEHAThX7GPCiBfAxK1b51kD+R7QMLjXg7iCsgWIPUh7pfVozG791oeBPngm48G583uW5GkBvI+SBaM2xXDn1oqum423bX/mgF5FySc2cv93Voug9TdZotsggnkBZB2NzbhrSY5HnoG07jei8dvzsJB/c3W60SALILE46+WCztsbhPR7R2VJq0ukEcT49nyy8QhaKcRa3fYHZD4+ufqOJAcgDz8/59vtw1I3QP5K6JsOG0vm3hce4I8LQp/BaRZGJC3AAn7IKOKXbC+7EdA5vdmmVwOLksgRThqOqiH4XEGsht+peoPUE8U/jJIO5OLH4GEwUslV5G0PTBG5Uiw/Y2jyigO3l9HAHKv9PYb82LloH74dZBoBUgar+l48NsNvtD0fkez9iwrAvIYZDRCl+Xs149Hm/KZmQ+QjUCiO1ei4ru7EsgnQYrkznlQb7thCuRfAzlOAPN72427P4VA/i2Q/DKT/Ls/VR8fvIBsDZIuz7TPF6TCbnk4GJkB2RokejTjuE7/unlgCuSTIO0Cy+Plp6vDfnQlBchy8QtjSHVd3EgmK1bHLm+H6+nXYbz2DuQRSPnqoL7vvq0u70on4zvxgCyWD3b9UyDVdW24PaWaiGTnFZJwPIQAebDpIKheBIm7n124ZthMJipAlkqHO+IZkP1tbfzOJark/A7MgKyvvl60fRqkvXfhuow+t9+q00+0/yyBrK8ZngOtBzldhw2X9tvpNGty0gvkmbPeJ0Cy/r09s/stbmfo0yMWkEdjevgKyOn2t2pxv7UXoibTdCDLje9/Ww1ymqzn87dbp92242ZmMRjI8hASvwKSLq4udqN6ksw8nxXN3tszD9L8Gkg+2mFrQYql5az4tvFj5xOx4VwnSdeBtGdyPwUytxK77pBVlNHdO7OK3rh/eTPUvdutT3fO52tuHMqD4N7llv8pyOQQ//w19YVDfX27+Sfuby9/6nau4pdA8vEdOZuChEH/quHt0Jg+IRJ/5+PrHwKZXfjbDiS73Zo7mu5UkzX7uTsXe0e/7nC3ePf1O69+BUg2XDfZCqSqOu7rGVf8cHBe8zhC2b61dtUHXv0OkGo6ZL4JkpbRYXdUaFevivx2M/1GIOctNh949TtAoumQ+TpIHMX54CJu+8BDd8FkE5BqcZh/59XvAClmTvKfB0nDqIlHo3T70SftyW1eX9dXtgQJqs1f/Q6QaOa/7wmQKtxH8eiGoCRuovODIO3VxOMmruZbHrLyD7z6DSDtGyT7ew1kf9hNn07c986JTovzzem0Id9wUG+Vk/IDr34DSNR7huZJkMFT6vEhqrPx/j5cnlZML8N6/PAzh9Y99Flm5Yde/c9BquDOkvkKkMP58dA4qi9vivE8JOvGz/j8FokfPpr288+pH2ZPOZrLmeGD+7KOh6dqYWJ48ki7yUg0tz0go/fv/LLddfV3sgOLJyaGPY/zrSlh1a36Arkzoue9CyG35ze6E6/dzO2Ga0EGHqdRJIkfn9/8OEjTW8Vq91ZWh39FeehWA7Nu9ft8CpUEk1WWOyDF0OPyEU2Pnzf/bZC0P6IPzmAvu7KauQBVrgKpJ0tG2arHzX8e5Pb3PezNs/PrX+3JMyCLn9XXf37tPFHvt09WfCDDjx+yyn1/p1V11j7GnB/q3leLuVva79S/tzed+db08YpF4uOZtmz/9oXWMq6BCAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAERECACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiACAgQAQEiIEAEBIiAALELvqt/BBgACqVeUBXxcCkAAAAASUVORK5CYII="
+      },
+      // 加载失败的错误占位图
+      errorImg: {
+        type: String,
+        default: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAMAAAC3Ycb+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODdDMjhENDYyQUQ2MTFFQTlDQ0VBODgxQjFFOEEyMEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODdDMjhENDcyQUQ2MTFFQTlDQ0VBODgxQjFFOEEyMEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4N0MyOEQ0NDJBRDYxMUVBOUNDRUE4ODFCMUU4QTIwQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4N0MyOEQ0NTJBRDYxMUVBOUNDRUE4ODFCMUU4QTIwQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhLwhikAAAAzUExURZWVldfX162t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"
+      },
+      // 图片进入可见区域前多少像素时，单位rpx，开始加载图片
+      // 负数为图片超出屏幕底部多少距离后触发懒加载，正数为图片顶部距离屏幕底部多少距离时触发(图片还没出现在屏幕上)
+      threshold: {
+        type: [Number, String],
+        default: 100
+      },
+      // 淡入淡出动画的过渡时间
+      duration: {
+        type: [Number, String],
+        default: 500
+      },
+      // 渡效果的速度曲线，各个之间差别不大，因为这是淡入淡出，且时间很短，不是那些变形或者移动的情况，会明显
+      // linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
+      effect: {
+        type: String,
+        default: "ease-in-out"
+      },
+      // 是否使用过渡效果
+      isEffect: {
+        type: Boolean,
+        default: true
+      },
+      // 圆角值
+      borderRadius: {
+        type: [Number, String],
+        default: 0
+      },
+      // 图片高度，单位rpx
+      height: {
+        type: [Number, String],
+        default: "450"
+      }
+    },
+    data() {
+      return {
+        isShow: false,
+        opacity: 1,
+        time: this.duration,
+        loadStatus: "",
+        // 默认是懒加载中的状态
+        isError: false,
+        // 图片加载失败
+        elIndex: this.$u.guid()
+      };
+    },
+    computed: {
+      // 将threshold从rpx转为px
+      getThreshold() {
+        let thresholdPx = uni.upx2px(Math.abs(this.threshold));
+        return this.threshold < 0 ? -thresholdPx : thresholdPx;
+      },
+      // 计算图片的高度，可能为auto，带%，或者直接数值
+      imgHeight() {
+        return this.$u.addUnit(this.height);
+      }
+    },
+    created() {
+      this.observer = {};
+    },
+    watch: {
+      isShow(nVal) {
+        if (!this.isEffect)
+          return;
+        this.time = 0;
+        this.opacity = 0;
+        setTimeout(() => {
+          this.time = this.duration;
+          this.opacity = 1;
+        }, 30);
+      },
+      // 图片路径发生变化时，需要重新标记一些变量，否则会一直卡在某一个状态，比如isError
+      image(n) {
+        if (!n) {
+          this.isError = true;
+        } else {
+          this.init();
+          this.isError = false;
+        }
+      }
+    },
+    methods: {
+      // 用于重新初始化
+      init() {
+        this.isError = false;
+        this.loadStatus = "";
+      },
+      // 点击图片触发的事件,loadlazy-还是懒加载中状态，loading-图片正在加载，loaded-图片加加载完成
+      clickImg() {
+        if (this.isShow == false)
+          ;
+        else if (this.isError == true)
+          ;
+        else
+          ;
+        this.$emit("click", this.index);
+      },
+      // 图片加载完成事件，可能是加载占位图时触发，也可能是加载真正的图片完成时触发，通过isShow区分
+      imgLoaded() {
+        if (this.loadStatus == "") {
+          this.loadStatus = "lazyed";
+        } else if (this.loadStatus == "lazyed") {
+          this.loadStatus = "loaded";
+          this.$emit("load", this.index);
+        }
+      },
+      // 错误的图片加载完成
+      errorImgLoaded() {
+        this.$emit("error", this.index);
+      },
+      // 图片加载失败
+      loadError() {
+        this.isError = true;
+      },
+      disconnectObserver(observerName) {
+        const observer = this[observerName];
+        observer && observer.disconnect();
+      }
+    },
+    beforeUnmount() {
+    },
+    mounted() {
+      this.$nextTick(() => {
+        uni.$once("uOnReachBottom", () => {
+          if (!this.isShow)
+            this.isShow = true;
+        });
+      });
+      setTimeout(() => {
+        this.disconnectObserver("contentObserver");
+        const contentObserver = uni.createIntersectionObserver(this);
+        contentObserver.relativeToViewport({
+          bottom: this.getThreshold
+        }).observe(".u-lazy-item-" + this.elIndex, (res) => {
+          if (res.intersectionRatio > 0) {
+            this.isShow = true;
+            this.disconnectObserver("contentObserver");
+          }
+        });
+        this.contentObserver = contentObserver;
+      }, 30);
+    }
+  };
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: vue.normalizeClass(["u-wrap", "u-lazy-item-" + $data.elIndex]),
+        style: vue.normalizeStyle({
+          opacity: Number($data.opacity),
+          borderRadius: $props.borderRadius + "rpx",
+          // 因为time值需要改变,所以不直接用duration值(不能改变父组件prop传过来的值)
+          transition: `opacity ${$data.time / 1e3}s ease-in-out`
+        })
+      },
+      [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass("u-lazy-item-" + $data.elIndex)
+          },
+          [
+            !$data.isError ? (vue.openBlock(), vue.createElementBlock("image", {
+              key: 0,
+              style: vue.normalizeStyle({ borderRadius: $props.borderRadius + "rpx", height: $options.imgHeight }),
+              class: "u-lazy-item",
+              src: $data.isShow ? $props.image : $props.loadingImg,
+              mode: $props.imgMode,
+              onLoad: _cache[0] || (_cache[0] = (...args) => $options.imgLoaded && $options.imgLoaded(...args)),
+              onError: _cache[1] || (_cache[1] = (...args) => $options.loadError && $options.loadError(...args)),
+              onClick: _cache[2] || (_cache[2] = (...args) => $options.clickImg && $options.clickImg(...args))
+            }, null, 44, ["src", "mode"])) : (vue.openBlock(), vue.createElementBlock("image", {
+              key: 1,
+              style: vue.normalizeStyle({ borderRadius: $props.borderRadius + "rpx", height: $options.imgHeight }),
+              class: "u-lazy-item error",
+              src: $props.errorImg,
+              mode: $props.imgMode,
+              onLoad: _cache[3] || (_cache[3] = (...args) => $options.errorImgLoaded && $options.errorImgLoaded(...args)),
+              onClick: _cache[4] || (_cache[4] = (...args) => $options.clickImg && $options.clickImg(...args))
+            }, null, 44, ["src", "mode"]))
+          ],
+          2
+          /* CLASS */
+        )
+      ],
+      6
+      /* CLASS, STYLE */
+    );
+  }
+  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-974af813"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-lazy-load/u-lazy-load.vue"]]);
+  const _sfc_main$6 = {
+    name: "u-waterfall",
+    emits: ["update:modelValue", "input"],
+    props: {
+      value: {
+        // 瀑布流数据
+        type: Array,
+        default: function() {
+          return [];
+        }
+      },
+      modelValue: {
+        // 瀑布流数据
+        type: Array,
+        default: function() {
+          return [];
+        }
+      },
+      // 每次向结构插入数据的时间间隔，间隔越长，越能保证两列高度相近，但是对用户体验越不好
+      // 单位ms
+      addTime: {
+        type: [Number, String],
+        default: 200
+      },
+      // id值，用于清除某一条数据时，根据此idKey名称找到并移除，如数据为{idx: 22, name: 'lisa'}
+      // 那么该把idKey设置为idx
+      idKey: {
+        type: String,
+        default: "id"
+      }
+    },
+    data() {
+      return {
+        leftList: [],
+        rightList: [],
+        tempList: [],
+        children: []
+      };
+    },
+    watch: {
+      copyFlowList(nVal, oVal) {
+        let startIndex = Array.isArray(oVal) && oVal.length > 0 ? oVal.length : 0;
+        this.tempList = this.tempList.concat(this.cloneData(nVal.slice(startIndex)));
+        this.splitData();
+      }
+    },
+    mounted() {
+      this.tempList = this.cloneData(this.copyFlowList);
+      this.splitData();
+    },
+    computed: {
+      valueCom() {
+        return this.modelValue;
+      },
+      // 破坏flowList变量的引用，否则watch的结果新旧值是一样的
+      copyFlowList() {
+        return this.cloneData(this.valueCom);
+      }
+    },
+    methods: {
+      async splitData() {
+        if (!this.tempList.length)
+          return;
+        let leftRect = await this.$uGetRect("#u-left-column");
+        let rightRect = await this.$uGetRect("#u-right-column");
+        let item = this.tempList[0];
+        if (!item)
+          return;
+        if (leftRect.height < rightRect.height) {
+          this.leftList.push(item);
+        } else if (leftRect.height > rightRect.height) {
+          this.rightList.push(item);
+        } else {
+          if (this.leftList.length <= this.rightList.length) {
+            this.leftList.push(item);
+          } else {
+            this.rightList.push(item);
+          }
+        }
+        this.tempList.splice(0, 1);
+        if (this.tempList.length) {
+          setTimeout(() => {
+            this.splitData();
+          }, this.addTime);
+        }
+      },
+      // 复制而不是引用对象和数组
+      cloneData(data) {
+        return JSON.parse(JSON.stringify(data));
+      },
+      // 清空数据列表
+      clear() {
+        this.leftList = [];
+        this.rightList = [];
+        this.$emit("input", []);
+        this.$emit("update:modelValue", []);
+        this.tempList = [];
+      },
+      // 清除某一条指定的数据，根据id实现
+      remove(id) {
+        let index = -1;
+        index = this.leftList.findIndex((val) => val[this.idKey] == id);
+        if (index != -1) {
+          this.leftList.splice(index, 1);
+        } else {
+          index = this.rightList.findIndex((val) => val[this.idKey] == id);
+          if (index != -1)
+            this.rightList.splice(index, 1);
+        }
+        index = this.value.findIndex((val) => val[this.idKey] == id);
+        if (index != -1) {
+          this.$emit("input", this.valueCom.splice(index, 1));
+          this.$emit("update:modelValue", this.valueCom.splice(index, 1));
+        }
+      },
+      // 修改某条数据的某个属性
+      modify(id, key, value) {
+        let index = -1;
+        index = this.leftList.findIndex((val) => val[this.idKey] == id);
+        if (index != -1) {
+          this.leftList[index][key] = value;
+        } else {
+          index = this.rightList.findIndex((val) => val[this.idKey] == id);
+          if (index != -1)
+            this.rightList[index][key] = value;
+        }
+        index = this.valueCom.findIndex((val) => val[this.idKey] == id);
+        if (index != -1) {
+          let data = this.cloneData(this.valueCom);
+          data[index][key] = value;
+          this.$emit("input", data);
+          this.$emit("update:modelValue", data);
+        }
+      }
+    }
+  };
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "u-waterfall" }, [
+      vue.createElementVNode("view", {
+        id: "u-left-column",
+        class: "u-column"
+      }, [
+        vue.renderSlot(_ctx.$slots, "left", { leftList: $data.leftList }, void 0, true)
+      ]),
+      vue.createElementVNode("view", {
+        id: "u-right-column",
+        class: "u-column"
+      }, [
+        vue.renderSlot(_ctx.$slots, "right", { rightList: $data.rightList }, void 0, true)
+      ])
+    ]);
+  }
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-059d5f61"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-waterfall/u-waterfall.vue"]]);
+  const _sfc_main$5 = {
+    name: "u-back-top",
+    props: {
+      // 返回顶部的形状，circle-圆形，square-方形
+      mode: {
+        type: String,
+        default: "circle"
+      },
+      // 自定义图标
+      icon: {
+        type: String,
+        default: "arrow-upward"
+      },
+      // 提示文字
+      tips: {
+        type: String,
+        default: ""
+      },
+      // 返回顶部滚动时间
+      duration: {
+        type: [Number, String],
+        default: 100
+      },
+      // 滚动距离
+      scrollTop: {
+        type: [Number, String],
+        default: 0
+      },
+      // 距离顶部多少距离显示，单位rpx
+      top: {
+        type: [Number, String],
+        default: 400
+      },
+      // 返回顶部按钮到底部的距离，单位rpx
+      bottom: {
+        type: [Number, String],
+        default: 200
+      },
+      // 返回顶部按钮到右边的距离，单位rpx
+      right: {
+        type: [Number, String],
+        default: 40
+      },
+      // 层级
+      zIndex: {
+        type: [Number, String],
+        default: "9"
+      },
+      // 图标的样式，对象形式
+      iconStyle: {
+        type: Object,
+        default() {
+          return {
+            color: "#909399",
+            fontSize: "38rpx"
+          };
+        }
+      },
+      // 整个组件的样式
+      customStyle: {
+        type: Object,
+        default() {
+          return {};
+        }
+      }
+    },
+    watch: {
+      showBackTop(nVal, oVal) {
+        if (nVal) {
+          this.uZIndex = this.zIndex;
+          this.opacity = 1;
+        } else {
+          this.uZIndex = -1;
+          this.opacity = 0;
+        }
+      }
+    },
+    computed: {
+      showBackTop() {
+        return this.scrollTop > uni.upx2px(this.top);
+      }
+    },
+    data() {
+      return {
+        // 不透明度，为了让组件有一个显示和隐藏的过渡动画
+        opacity: 0,
+        // 组件的z-index值，隐藏时设置为-1，就会看不到
+        uZIndex: -1
+      };
+    },
+    methods: {
+      backToTop() {
+        uni.pageScrollTo({
+          scrollTop: 0,
+          duration: this.duration
+        });
+      }
+    }
+  };
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0$6);
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        onClick: _cache[0] || (_cache[0] = (...args) => $options.backToTop && $options.backToTop(...args)),
+        class: vue.normalizeClass(["u-back-top", ["u-back-top--mode--" + $props.mode]]),
+        style: vue.normalizeStyle([{
+          bottom: $props.bottom + "rpx",
+          right: $props.right + "rpx",
+          borderRadius: $props.mode == "circle" ? "10000rpx" : "8rpx",
+          zIndex: $data.uZIndex,
+          opacity: $data.opacity
+        }, $props.customStyle])
+      },
+      [
+        !_ctx.$slots.default && !_ctx.$slots.$default ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "u-back-top__content"
+        }, [
+          vue.createVNode(_component_u_icon, {
+            onClick: $options.backToTop,
+            name: $props.icon,
+            "custom-style": $props.iconStyle
+          }, null, 8, ["onClick", "name", "custom-style"]),
+          vue.createElementVNode(
+            "view",
+            { class: "u-back-top__content__tips" },
+            vue.toDisplayString($props.tips),
+            1
+            /* TEXT */
+          )
+        ])) : vue.renderSlot(_ctx.$slots, "default", { key: 1 }, void 0, true)
+      ],
+      6
+      /* CLASS, STYLE */
+    );
+  }
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-6976d1a0"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-back-top/u-back-top.vue"]]);
+  const _sfc_main$4 = {
+    name: "u-line",
+    props: {
+      color: {
+        type: String,
+        default: "#e4e7ed"
+      },
+      // 长度，竖向时表现为高度，横向时表现为长度，可以为百分比，带rpx单位的值等
+      length: {
+        type: String,
+        default: "100%"
+      },
+      // 线条方向，col-竖向，row-横向
+      direction: {
+        type: String,
+        default: "row"
+      },
+      // 是否显示细边框
+      hairLine: {
+        type: Boolean,
+        default: true
+      },
+      // 线条与上下左右元素的间距，字符串形式，如"30rpx"、"20rpx 30rpx"
+      margin: {
+        type: String,
+        default: "0"
+      },
+      // 线条的类型，solid-实线，dashed-方形虚线，dotted-圆点虚线
+      borderStyle: {
+        type: String,
+        default: "solid"
+      }
+    },
+    computed: {
+      lineStyle() {
+        let style = {};
+        style.margin = this.margin;
+        if (this.direction == "row") {
+          style.borderBottomWidth = "1px";
+          style.borderBottomStyle = this.borderStyle;
+          style.width = this.$u.addUnit(this.length);
+          if (this.hairLine)
+            style.transform = "scaleY(0.5)";
+        } else {
+          style.borderLeftWidth = "1px";
+          style.borderLeftStyle = this.borderStyle;
+          style.height = this.$u.addUnit(this.length);
+          if (this.hairLine)
+            style.transform = "scaleX(0.5)";
+        }
+        style.borderColor = this.color;
+        return style;
+      }
+    }
+  };
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: "u-line",
+        style: vue.normalizeStyle([$options.lineStyle])
+      },
+      null,
+      4
+      /* STYLE */
+    );
+  }
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-3e1cc47b"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-line/u-line.vue"]]);
+  const _sfc_main$3 = {
+    name: "u-loading",
+    props: {
+      // 动画的类型
+      mode: {
+        type: String,
+        default: "circle"
+      },
+      // 动画的颜色
+      color: {
+        type: String,
+        default: "#c7c7c7"
+      },
+      // 加载图标的大小，单位rpx
+      size: {
+        type: [String, Number],
+        default: "34"
+      },
+      // 是否显示动画
+      show: {
+        type: Boolean,
+        default: true
+      }
+    },
+    computed: {
+      // 加载中圆圈动画的样式
+      cricleStyle() {
+        let style = {};
+        style.width = this.size + "rpx";
+        style.height = this.size + "rpx";
+        if (this.mode == "circle")
+          style.borderColor = `#e4e4e4 #e4e4e4 #e4e4e4 ${this.color ? this.color : "#c7c7c7"}`;
+        return style;
+      }
+    }
+  };
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+    return $props.show ? (vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        key: 0,
+        class: vue.normalizeClass(["u-loading", $props.mode == "circle" ? "u-loading-circle" : "u-loading-flower"]),
+        style: vue.normalizeStyle([$options.cricleStyle])
+      },
+      null,
+      6
+      /* CLASS, STYLE */
+    )) : vue.createCommentVNode("v-if", true);
+  }
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-32db0ed8"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-loading/u-loading.vue"]]);
+  const _sfc_main$2 = {
+    name: "u-loadmore",
+    emits: ["loadmore"],
+    props: {
+      // 组件背景色
+      bgColor: {
+        type: String,
+        default: "transparent"
+      },
+      // 是否显示加载中的图标
+      icon: {
+        type: Boolean,
+        default: true
+      },
+      // 字体大小
+      fontSize: {
+        type: String,
+        default: "28"
+      },
+      // 字体颜色
+      color: {
+        type: String,
+        default: "#606266"
+      },
+      // 组件状态，loadmore-加载前的状态，loading-加载中的状态，nomore-没有更多的状态
+      status: {
+        type: String,
+        default: "loadmore"
+      },
+      // 加载中状态的图标，flower-花朵状图标，circle-圆圈状图标
+      iconType: {
+        type: String,
+        default: "circle"
+      },
+      // 显示的文字
+      loadText: {
+        type: Object,
+        default() {
+          return {
+            loadmore: "加载更多",
+            loading: "正在加载...",
+            nomore: "没有更多了"
+          };
+        }
+      },
+      // 在“没有更多”状态下，是否显示粗点
+      isDot: {
+        type: Boolean,
+        default: false
+      },
+      // 加载中显示圆圈动画时，动画的颜色
+      iconColor: {
+        type: String,
+        default: "#b7b7b7"
+      },
+      // 上边距
+      marginTop: {
+        type: [String, Number],
+        default: 0
+      },
+      // 下边距
+      marginBottom: {
+        type: [String, Number],
+        default: 0
+      },
+      // 高度，单位rpx
+      height: {
+        type: [String, Number],
+        default: "auto"
+      }
+    },
+    data() {
+      return {
+        // 粗点
+        dotText: "●"
+      };
+    },
+    computed: {
+      // 加载的文字显示的样式
+      loadTextStyle() {
+        return {
+          color: this.color,
+          fontSize: this.fontSize + "rpx",
+          position: "relative",
+          zIndex: 1,
+          backgroundColor: this.bgColor
+          // 如果是加载中状态，动画和文字需要距离近一点
+        };
+      },
+      // 加载中圆圈动画的样式
+      cricleStyle() {
+        return {
+          borderColor: `#e5e5e5 #e5e5e5 #e5e5e5 ${this.circleColor}`
+        };
+      },
+      // 加载中花朵动画形式
+      // 动画由base64图片生成，暂不支持修改
+      flowerStyle() {
+        return {};
+      },
+      // 显示的提示文字
+      showText() {
+        let text = "";
+        if (this.status == "loadmore")
+          text = this.loadText.loadmore;
+        else if (this.status == "loading")
+          text = this.loadText.loading;
+        else if (this.status == "nomore" && this.isDot)
+          text = this.dotText;
+        else
+          text = this.loadText.nomore;
+        return text;
+      }
+    },
+    methods: {
+      loadMore() {
+        if (this.status == "loadmore")
+          this.$emit("loadmore");
+      }
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_u_line = resolveEasycom(vue.resolveDynamicComponent("u-line"), __easycom_0);
+    const _component_u_loading = resolveEasycom(vue.resolveDynamicComponent("u-loading"), __easycom_1);
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: "u-load-more-wrap",
+        style: vue.normalizeStyle({
+          backgroundColor: $props.bgColor,
+          marginBottom: $props.marginBottom + "rpx",
+          marginTop: $props.marginTop + "rpx",
+          height: _ctx.$u.addUnit($props.height)
+        })
+      },
+      [
+        vue.createVNode(_component_u_line, {
+          color: "#d4d4d4",
+          length: "50",
+          class: "u-line"
+        }),
+        vue.createCommentVNode(" 加载中和没有更多的状态才显示两边的横线 "),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass([$props.status == "loadmore" || $props.status == "nomore" ? "u-more" : "", "u-load-more-inner"])
+          },
+          [
+            vue.createElementVNode("view", { class: "u-loadmore-icon-wrap" }, [
+              vue.createVNode(_component_u_loading, {
+                class: "u-loadmore-icon",
+                color: $props.iconColor,
+                mode: $props.iconType == "circle" ? "circle" : "flower",
+                show: $props.status == "loading" && $props.icon
+              }, null, 8, ["color", "mode", "show"])
+            ]),
+            vue.createCommentVNode(" 如果没有更多的状态下，显示内容为dot（粗点），加载特定样式 "),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["u-line-1", [$props.status == "nomore" && $props.isDot == true ? "u-dot-text" : "u-more-text"]]),
+                style: vue.normalizeStyle([$options.loadTextStyle]),
+                onClick: _cache[0] || (_cache[0] = (...args) => $options.loadMore && $options.loadMore(...args))
+              },
+              vue.toDisplayString($options.showText),
+              7
+              /* TEXT, CLASS, STYLE */
+            )
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createVNode(_component_u_line, {
+          color: "#d4d4d4",
+          length: "50",
+          class: "u-line"
+        })
+      ],
+      4
+      /* STYLE */
+    );
+  }
+  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-e9906cfb"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/uni_modules/vk-uview-ui/components/u-loadmore/u-loadmore.vue"]]);
+  const _sfc_main$1 = {
+    __name: "moreList",
+    setup(__props) {
+      const uWaterfall1 = vue.ref(null);
+      let tab = vue.ref(null);
+      let scrollTop = vue.ref(0);
+      onPageScroll((e) => {
+        scrollTop.value = e.scrollTop;
+      });
+      onLoad(() => {
+        const pages = getCurrentPages();
+        const page = pages[pages.length - 1];
+        const eventChannel = page.getOpenerEventChannel();
+        eventChannel.on("acceptDataFromOpenerPage", (data) => {
+          uni.setNavigationBarTitle({
+            title: data.tab || "更多"
+          });
+          tab.value = data.tab;
+          addRandomData();
+        });
+      });
+      let loadStatus = vue.ref("loadmore");
+      let flowList = vue.ref([]);
+      vue.ref([]);
+      onReachBottom(() => {
+        loadStatus.value = "loading";
+        setTimeout(() => {
+          addRandomData();
+          loadStatus.value = "loadmore";
+        }, 1e3);
+      });
+      const addRandomData = () => {
+        request$1.request("https://api.waifu.im/search", "get", {
+          "included_tags": tab.value,
+          "limit": 10
+        }).then((res) => {
+          formatAppLog("log", "at pages/common/moreList.vue:88", res);
+          for (let pic of res.images) {
+            flowList.value.push(pic);
+          }
+        });
+      };
+      const showPic = (item) => {
+        uni.previewImage({
+          current: 1,
+          // 当前显示图片索引
+          urls: [item],
+          // 需要预览的图片http链接列表
+          longPressActions: {
+            itemList: ["保存图片"],
+            success: function(data) {
+              if (data.tapIndex === 0) {
+                savePic(item);
+              }
+            },
+            fail: function(err) {
+              formatAppLog("log", "at pages/common/moreList.vue:107", err.errMsg);
+            }
+          }
+        });
+      };
+      const savePic = (src) => {
+        uni.downloadFile({
+          url: src,
+          success(res) {
+            uni.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success() {
+                uni.showToast({
+                  title: "保存成功",
+                  icon: "succeed"
+                });
+              },
+              fail(err) {
+                uni.showToast({
+                  title: "保存失败",
+                  icon: "error"
+                });
+              }
+            });
+          }
+        });
+      };
+      return (_ctx, _cache) => {
+        const _component_u_lazy_load = resolveEasycom(vue.resolveDynamicComponent("u-lazy-load"), __easycom_0$1);
+        const _component_u_waterfall = resolveEasycom(vue.resolveDynamicComponent("u-waterfall"), __easycom_1$1);
+        const _component_u_back_top = resolveEasycom(vue.resolveDynamicComponent("u-back-top"), __easycom_2);
+        const _component_u_loadmore = resolveEasycom(vue.resolveDynamicComponent("u-loadmore"), __easycom_3);
+        return vue.openBlock(), vue.createElementBlock("view", { class: "wrap" }, [
+          vue.createVNode(_component_u_waterfall, {
+            modelValue: vue.unref(flowList),
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => vue.isRef(flowList) ? flowList.value = $event : flowList = $event),
+            ref_key: "uWaterfall1",
+            ref: uWaterfall1,
+            idKey: "image_id"
+          }, {
+            left: vue.withCtx(({ leftList }) => [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList(leftList, (item, index) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "demo-warter",
+                    key: index
+                  }, [
+                    vue.createCommentVNode(" 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 "),
+                    vue.createVNode(_component_u_lazy_load, {
+                      threshold: "-450",
+                      "border-radius": "10",
+                      image: item.url,
+                      index,
+                      onClick: ($event) => showPic(item.url)
+                    }, null, 8, ["image", "index", "onClick"]),
+                    vue.createElementVNode("view", { class: "demo-tag" }, [
+                      vue.createCommentVNode(' 	<view class="demo-tag-owner">\r\n							自营\r\n						</view> '),
+                      vue.createElementVNode(
+                        "view",
+                        { class: "demo-tag-text" },
+                        vue.toDisplayString(item.artist ? item.artist.name : "未知"),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode(
+                      "view",
+                      { class: "demo-shop" },
+                      vue.toDisplayString(item.shop),
+                      1
+                      /* TEXT */
+                    )
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ]),
+            right: vue.withCtx(({ rightList }) => [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList(rightList, (item, index) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "demo-warter",
+                    key: index
+                  }, [
+                    vue.createVNode(_component_u_lazy_load, {
+                      threshold: "-450",
+                      "border-radius": "10",
+                      image: item.url,
+                      index,
+                      onClick: ($event) => showPic(item.url)
+                    }, null, 8, ["image", "index", "onClick"]),
+                    vue.createElementVNode("view", { class: "demo-tag" }, [
+                      vue.createCommentVNode(' <view class="demo-tag-owner">\r\n							自营\r\n						</view> '),
+                      vue.createElementVNode(
+                        "view",
+                        { class: "demo-tag-text" },
+                        vue.toDisplayString(item.artist ? item.artist.name : "未知"),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode(
+                      "view",
+                      { class: "demo-shop" },
+                      vue.toDisplayString(item.shop),
+                      1
+                      /* TEXT */
+                    )
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ]),
+            _: 1
+            /* STABLE */
+          }, 8, ["modelValue"]),
+          vue.createVNode(_component_u_back_top, { "scroll-top": vue.unref(scrollTop) }, null, 8, ["scroll-top"]),
+          vue.createVNode(_component_u_loadmore, {
+            "bg-color": "rgb(240, 240, 240)",
+            status: vue.unref(loadStatus),
+            onLoadmore: addRandomData
+          }, null, 8, ["status"])
+        ]);
+      };
+    }
+  };
+  const PagesCommonMoreList = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-cb5fdae2"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/common/moreList.vue"]]);
   __definePage("pages/home/index", PagesHomeIndex);
   __definePage("pages/sort/index", PagesSortIndex);
   __definePage("pages/my/index", PagesMyIndex);
+  __definePage("pages/common/moreList", PagesCommonMoreList);
   const _sfc_main = {};
   function _sfc_render(_ctx, _cache) {
     return null;

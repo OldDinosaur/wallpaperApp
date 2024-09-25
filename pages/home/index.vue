@@ -9,7 +9,7 @@
 			<view>
 				<!-- 更多 -->
 				<u-card v-for="(item,index) in picList" :key="item.tab" :title="item.tab" :show-foot='false'
-					sub-title="查看更多">
+					sub-title="查看更多" @head-click="checkMore(item)">
 					<template v-slot:body>
 						<view class="tap-pic ">
 							<view class="pic-item" v-for="(pic,index1) in item.list">
@@ -138,7 +138,6 @@
 
 	/* 搜索 */
 	const searchClick = (val) => {
-		console.log(keyword.value);
 		if (keyword.value == '老恐龙是帅哥') {
 			//获取versatile类型的图片
 			picList.value = []
@@ -167,6 +166,18 @@
 				})
 			}
 		}
+	}
+	
+	
+	/* 查看更多 */
+	const checkMore = (item)=>{
+		uni.navigateTo({
+		  url: '/pages/common/moreList',
+		  success: function(res) {
+		    // 通过eventChannel向被打开页面传送数据
+		    res.eventChannel.emit('acceptDataFromOpenerPage', {tab:item.tab })
+		  }
+		})
 	}
 	//底部tap
 	let list = ref([{

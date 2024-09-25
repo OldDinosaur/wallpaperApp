@@ -5,6 +5,7 @@
 			分类
 			<!-- APP中底部与自定义导航栏断开 -->
 			<view style="height: 100rpx;"></view>
+			<test/> 
 		</view>
 		<u-tabbar v-model="current" :list="list"></u-tabbar>
 	</view>

@@ -1,8 +1,8 @@
 <template>
 	<view>
 		<view class="u-page text-area">
-			我的
 			<!-- APP中底部与自定义导航栏断开 -->
+			关于：所有数据均来自网站（https://github.com/Waifu-pics/waifu-api）的 api 提供，如有侵权，请联系开发者(1850110843@qq.com)删除。
 			<view style="height: 100rpx;"></view>
 		</view>
 		<u-tabbar v-model="current" :list="list"></u-tabbar>
