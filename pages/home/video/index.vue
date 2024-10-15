@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-	import {
+	import { 
 		ref,
 		reactive,
 	} from 'vue'
