@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/wall/index",
     "pages/sort/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/common/moreList"
   ],
   "window": {
     "navigationBarTextStyle": "black",

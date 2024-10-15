@@ -30,8 +30,10 @@ require("./uni_modules/vk-uview-ui/libs/config/config.js");
 require("./uni_modules/vk-uview-ui/libs/config/zIndex.js");
 if (!Math) {
   "./pages/home/index.js";
+  "./pages/home/wall/index.js";
   "./pages/sort/index.js";
   "./pages/my/index.js";
+  "./pages/common/moreList.js";
 }
 const _sfc_main = {};
 function _sfc_render(_ctx, _cache) {

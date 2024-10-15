@@ -48,6 +48,14 @@
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "C:/Users/蜗牛/Desktop/82021536.png",
+                    "xhdpi" : "C:/Users/蜗牛/Desktop/82021536.png",
+                    "xxxhdpi" : "C:/Users/蜗牛/Desktop/82021536.png",
+                    "xxhdpi" : "C:/Users/蜗牛/Desktop/82021536.png"
+                }
             }
         }
     },

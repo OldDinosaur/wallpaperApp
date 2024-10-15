@@ -4,7 +4,27 @@
 			"path": "pages/home/index",
 			"style": {
 				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/home/wall/index",
+			"style": {
+				"navigationBarTitleText": "壁纸",
 				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/home/video/index",
+			"style": {
+				"navigationBarTitleText": "视频",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/webview/webview",
+			"style": {
+				"navigationBarTitleText": "外部",
+				"enablePullDownRefresh": false
 			}
 		},
 		{

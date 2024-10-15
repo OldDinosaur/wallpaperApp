@@ -1,143 +1,55 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
-const utils_request = require("../../utils/request.js");
 if (!Array) {
-  const _easycom_u_search2 = common_vendor.resolveComponent("u-search");
-  const _easycom_u_image2 = common_vendor.resolveComponent("u-image");
-  const _easycom_u_card2 = common_vendor.resolveComponent("u-card");
+  const _easycom_u_section2 = common_vendor.resolveComponent("u-section");
+  const _easycom_u_grid_item2 = common_vendor.resolveComponent("u-grid-item");
+  const _easycom_u_grid2 = common_vendor.resolveComponent("u-grid");
+  const _easycom_u_icon2 = common_vendor.resolveComponent("u-icon");
   const _easycom_u_tabbar2 = common_vendor.resolveComponent("u-tabbar");
-  (_easycom_u_search2 + _easycom_u_image2 + _easycom_u_card2 + _easycom_u_tabbar2)();
+  (_easycom_u_section2 + _easycom_u_grid_item2 + _easycom_u_grid2 + _easycom_u_icon2 + _easycom_u_tabbar2)();
 }
-const _easycom_u_search = () => "../../uni_modules/vk-uview-ui/components/u-search/u-search.js";
-const _easycom_u_image = () => "../../uni_modules/vk-uview-ui/components/u-image/u-image.js";
-const _easycom_u_card = () => "../../uni_modules/vk-uview-ui/components/u-card/u-card.js";
+const _easycom_u_section = () => "../../uni_modules/vk-uview-ui/components/u-section/u-section.js";
+const _easycom_u_grid_item = () => "../../uni_modules/vk-uview-ui/components/u-grid-item/u-grid-item.js";
+const _easycom_u_grid = () => "../../uni_modules/vk-uview-ui/components/u-grid/u-grid.js";
+const _easycom_u_icon = () => "../../uni_modules/vk-uview-ui/components/u-icon/u-icon.js";
 const _easycom_u_tabbar = () => "../../uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar.js";
 if (!Math) {
-  (_easycom_u_search + swiper1 + _easycom_u_image + _easycom_u_card + _easycom_u_tabbar)();
+  (_easycom_u_section + _easycom_u_grid_item + _easycom_u_grid + _easycom_u_icon + _easycom_u_tabbar)();
 }
-const swiper1 = () => "./swiper1.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
-    let loading = common_vendor.ref(false);
-    let keyword = common_vendor.ref("爆照的老恐龙");
-    let swiper1Ref = common_vendor.ref();
-    common_vendor.onPullDownRefresh(() => {
-      swiper1Ref.value.getData();
-      getAllTags();
-      setTimeout(function() {
-        common_vendor.index.stopPullDownRefresh();
-      }, 1e3);
-    });
-    let tags = common_vendor.ref({});
-    let nsfwList = common_vendor.ref([]);
-    let versatileList = common_vendor.ref([]);
-    let picList = common_vendor.ref([]);
-    const getAllTags = () => {
-      loading.value = true;
-      utils_request.request.request("https://api.waifu.im/tags").then((res) => {
-        tags.value = res;
-        nsfwList.value = res.nsfw;
-        versatileList.value = res.versatile;
-        picList.value = [];
-        for (let item of versatileList.value) {
-          utils_request.request.request("https://api.waifu.im/search", "get", {
-            "included_tags": item,
-            "limit": 6
-          }).then((res2) => {
-            picList.value.push({
-              tab: item,
-              list: res2.images
-            });
-          });
-        }
-        loading.value = false;
-      });
-    };
-    common_vendor.onLoad(() => {
-      common_vendor.nextTick$1(() => {
-        if (swiper1Ref.value) {
-          swiper1Ref.value.getData();
-        }
-      });
-      getAllTags();
-    });
-    const showPic = (item, index, list2) => {
-      let picList2 = [];
-      for (let item2 of list2) {
-        picList2.push(item2.url);
+    let interviewList = common_vendor.reactive([
+      {
+        id: 0,
+        title: "HTML",
+        icon: "html"
+      },
+      {
+        id: 1,
+        title: "JS",
+        icon: "js"
+      },
+      {
+        id: 2,
+        title: "CSS",
+        icon: "css"
       }
-      common_vendor.index.previewImage({
-        current: index,
-        // 当前显示图片索引
-        urls: picList2,
-        // 需要预览的图片http链接列表
-        longPressActions: {
-          itemList: ["保存图片"],
-          success: function(data) {
-            console.log(data);
-            if (data.tapIndex === 0) {
-              savePic(item);
-            }
-          },
-          fail: function(err) {
-            console.log(err.errMsg);
-          }
-        }
-      });
-    };
-    const savePic = (src) => {
-      common_vendor.index.downloadFile({
-        url: src,
-        success(res) {
-          common_vendor.index.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
-            success() {
-              common_vendor.index.showToast({
-                title: "保存成功",
-                icon: "succeed"
-              });
-            },
-            fail(err) {
-              common_vendor.index.showToast({
-                title: "保存失败",
-                icon: "error"
-              });
-            }
-          });
-        }
-      });
-    };
-    const searchClick = (val) => {
-      console.log(keyword.value);
-      if (keyword.value == "老恐龙是帅哥") {
-        picList.value = [];
-        for (let item of nsfwList.value) {
-          utils_request.request.request("https://api.waifu.im/search", "get", {
-            "included_tags": item,
-            "limit": 6
-          }).then((res) => {
-            picList.value.push({
-              tab: item,
-              list: res.images
-            });
-          });
-        }
-      } else {
-        picList.value = [];
-        for (let item of versatileList.value) {
-          utils_request.request.request("https://api.waifu.im/search", "get", {
-            "included_tags": item,
-            "limit": 6
-          }).then((res) => {
-            picList.value.push({
-              tab: item,
-              list: res.images
-            });
-          });
-        }
+    ]);
+    common_vendor.reactive([
+      {
+        id: 0,
+        title: "壁纸"
+      },
+      {
+        id: 1,
+        title: "视频"
+      },
+      {
+        id: 2,
+        title: "其他"
       }
-    };
+    ]);
     let list = common_vendor.ref([
       {
         iconPath: "home",
@@ -164,42 +76,41 @@ const _sfc_main = {
     let current = common_vendor.ref(0);
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(searchClick),
-        b: common_vendor.o(($event) => common_vendor.isRef(keyword) ? keyword.value = $event : keyword = $event),
-        c: common_vendor.p({
-          margin: "10rpx",
-          ["show-action"]: false,
-          placeholder: "爆照的老恐龙",
-          clearabled: true,
-          modelValue: common_vendor.unref(keyword)
+        a: common_vendor.p({
+          title: "面试题",
+          right: false
         }),
-        d: common_vendor.sr(swiper1Ref, "53cec437-1", {
-          "k": "swiper1Ref"
-        }),
-        e: common_vendor.f(common_vendor.unref(picList), (item, index, i0) => {
+        b: common_vendor.f(common_vendor.unref(interviewList), (item, k0, i0) => {
           return {
-            a: common_vendor.f(item.list, (pic, index1, i1) => {
-              return {
-                a: common_vendor.o(($event) => showPic(pic.url, index1, item.list)),
-                b: "53cec437-3-" + i0 + "-" + i1 + "," + ("53cec437-2-" + i0),
-                c: common_vendor.p({
-                  width: "100%",
-                  height: "300rpx",
-                  src: pic.url
-                })
-              };
-            }),
-            b: item.tab,
-            c: "53cec437-2-" + i0,
-            d: common_vendor.p({
-              title: item.tab,
-              ["show-foot"]: false,
-              ["sub-title"]: "查看更多"
-            })
+            a: common_vendor.t(item.title),
+            b: item.id,
+            c: "4978fed5-2-" + i0 + ",4978fed5-1"
           };
         }),
-        f: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
+        c: common_vendor.p({
+          col: 3
+        }),
+        d: common_vendor.p({
+          title: "其他",
+          right: false
+        }),
+        e: common_vendor.p({
+          name: "photo",
+          size: 46
+        }),
+        f: common_vendor.p({
+          name: "lock",
+          size: 46
+        }),
         g: common_vendor.p({
+          name: "lock",
+          size: 46
+        }),
+        h: common_vendor.p({
+          col: 3
+        }),
+        i: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
+        j: common_vendor.p({
           list: common_vendor.unref(list),
           modelValue: common_vendor.unref(current)
         })
@@ -207,5 +118,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-4978fed5"], ["__file", "C:/Users/蜗牛/Documents/HBuilderProjects/wallP/pages/home/index.vue"]]);
 wx.createPage(MiniProgramPage);

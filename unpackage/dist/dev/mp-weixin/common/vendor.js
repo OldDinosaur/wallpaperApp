@@ -2480,8 +2480,8 @@ function triggerRefValue(ref2, newVal) {
     }
   }
 }
-function isRef(r) {
-  return !!(r && r.__v_isRef === true);
+function isRef(r2) {
+  return !!(r2 && r2.__v_isRef === true);
 }
 function ref(value) {
   return createRef(value, false);
@@ -4107,7 +4107,7 @@ function createWatcher(raw, ctx, publicThis, key) {
     watch(getter, raw.bind(publicThis));
   } else if (isObject(raw)) {
     if (isArray(raw)) {
-      raw.forEach((r) => createWatcher(r, ctx, publicThis, key));
+      raw.forEach((r2) => createWatcher(r2, ctx, publicThis, key));
     } else {
       const handler = isFunction(raw.handler) ? raw.handler.bind(publicThis) : ctx[raw.handler];
       if (isFunction(handler)) {
@@ -5371,21 +5371,21 @@ function findComponentPublicInstance(mpComponents, id) {
   }
   return null;
 }
-function setTemplateRef({ r, f: f2 }, refValue, setupState) {
-  if (isFunction(r)) {
-    r(refValue, {});
+function setTemplateRef({ r: r2, f: f2 }, refValue, setupState) {
+  if (isFunction(r2)) {
+    r2(refValue, {});
   } else {
-    const _isString = isString(r);
-    const _isRef = isRef(r);
+    const _isString = isString(r2);
+    const _isRef = isRef(r2);
     if (_isString || _isRef) {
       if (f2) {
         if (!_isRef) {
           return;
         }
-        if (!isArray(r.value)) {
-          r.value = [];
+        if (!isArray(r2.value)) {
+          r2.value = [];
         }
-        const existing = r.value;
+        const existing = r2.value;
         if (existing.indexOf(refValue) === -1) {
           existing.push(refValue);
           if (!refValue) {
@@ -5394,16 +5394,16 @@ function setTemplateRef({ r, f: f2 }, refValue, setupState) {
           onBeforeUnmount(() => remove(existing, refValue), refValue.$);
         }
       } else if (_isString) {
-        if (hasOwn(setupState, r)) {
-          setupState[r] = refValue;
+        if (hasOwn(setupState, r2)) {
+          setupState[r2] = refValue;
         }
-      } else if (isRef(r)) {
-        r.value = refValue;
+      } else if (isRef(r2)) {
+        r2.value = refValue;
       } else {
-        warnRef(r);
+        warnRef(r2);
       }
     } else {
-      warnRef(r);
+      warnRef(r2);
     }
   }
 }
@@ -5993,6 +5993,70 @@ function vFor(source, renderItem) {
   }
   return ret;
 }
+function renderSlot(name, props = {}, key) {
+  const instance = getCurrentInstance();
+  const { parent, isMounted, ctx: { $scope } } = instance;
+  const vueIds = ($scope.properties || $scope.props).uI;
+  if (!vueIds) {
+    return;
+  }
+  if (!parent && !isMounted) {
+    onMounted(() => {
+      renderSlot(name, props, key);
+    }, instance);
+    return;
+  }
+  const invoker = findScopedSlotInvoker(vueIds, instance);
+  if (invoker) {
+    invoker(name, props, key);
+  }
+}
+function findScopedSlotInvoker(vueId, instance) {
+  let parent = instance.parent;
+  while (parent) {
+    const invokers = parent.$ssi;
+    if (invokers && invokers[vueId]) {
+      return invokers[vueId];
+    }
+    parent = parent.parent;
+  }
+}
+function withScopedSlot(fn, { name, path, vueId }) {
+  const instance = getCurrentInstance();
+  fn.path = path;
+  const scopedSlots = instance.$ssi || (instance.$ssi = {});
+  const invoker = scopedSlots[vueId] || (scopedSlots[vueId] = createScopedSlotInvoker(instance));
+  if (!invoker.slots[name]) {
+    invoker.slots[name] = {
+      fn
+    };
+  } else {
+    invoker.slots[name].fn = fn;
+  }
+  return getValueByDataPath(instance.ctx.$scope.data, path);
+}
+function createScopedSlotInvoker(instance) {
+  const invoker = (slotName, args, index2) => {
+    const slot = invoker.slots[slotName];
+    if (!slot) {
+      return;
+    }
+    const hasIndex = typeof index2 !== "undefined";
+    index2 = index2 || 0;
+    const prevInstance = setCurrentRenderingInstance(instance);
+    const data = slot.fn(args, slotName + (hasIndex ? "-" + index2 : ""), index2);
+    const path = slot.fn.path;
+    setCurrentRenderingInstance(prevInstance);
+    (instance.$scopedSlotsData || (instance.$scopedSlotsData = [])).push({
+      path,
+      index: index2,
+      data
+    });
+    instance.$updateScopedSlots();
+  };
+  invoker.slots = {};
+  return invoker;
+}
 function stringifyStyle(value) {
   if (isString(value)) {
     return value;
@@ -6015,6 +6079,8 @@ function setRef(ref2, id, opts = {}) {
 }
 const o = (value, key) => vOn(value, key);
 const f = (source, renderItem) => vFor(source, renderItem);
+const r = (name, props, key) => renderSlot(name, props, key);
+const w = (fn, options) => withScopedSlot(fn, options);
 const s = (value) => stringifyStyle(value);
 const e = (target, ...sources) => extend(target, ...sources);
 const n = (value) => normalizeClass(value);
@@ -6854,6 +6920,8 @@ const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
   !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
 };
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
+const onPageScroll = /* @__PURE__ */ createHook(ON_PAGE_SCROLL);
+const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
 const onPullDownRefresh = /* @__PURE__ */ createHook(ON_PULL_DOWN_REFRESH);
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
@@ -6865,11 +6933,16 @@ exports.n = n;
 exports.nextTick$1 = nextTick$1;
 exports.o = o;
 exports.onLoad = onLoad;
+exports.onPageScroll = onPageScroll;
 exports.onPullDownRefresh = onPullDownRefresh;
+exports.onReachBottom = onReachBottom;
 exports.p = p;
+exports.r = r;
+exports.reactive = reactive;
 exports.ref = ref;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
 exports.sr = sr;
 exports.t = t;
 exports.unref = unref;
+exports.w = w;

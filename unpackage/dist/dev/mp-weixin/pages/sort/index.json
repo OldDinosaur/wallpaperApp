@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "分类",
   "usingComponents": {
+    "test": "../../components/test/test",
     "u-tabbar": "../../uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar"
   }
 }

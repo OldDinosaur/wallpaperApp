@@ -1,12 +1,14 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 if (!Array) {
+  const _easycom_test2 = common_vendor.resolveComponent("test");
   const _easycom_u_tabbar2 = common_vendor.resolveComponent("u-tabbar");
-  _easycom_u_tabbar2();
+  (_easycom_test2 + _easycom_u_tabbar2)();
 }
+const _easycom_test = () => "../../components/test/test.js";
 const _easycom_u_tabbar = () => "../../uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar.js";
 if (!Math) {
-  _easycom_u_tabbar();
+  (_easycom_test + _easycom_u_tabbar)();
 }
 const _sfc_main = {
   __name: "index",
