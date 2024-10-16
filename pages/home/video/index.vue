@@ -34,7 +34,7 @@
 		},
 		{
 			id: 3,
-			title: 'iKun',
+			title: '菜狗',
 			icon: 'https://www.dddog.cn/movie/img/ico.png',
 			url: '/pages/webview/webview?url=' + encodeURIComponent('https://www.dddog.cn/movie/')
 		},

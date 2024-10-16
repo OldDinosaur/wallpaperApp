@@ -1,6 +1,6 @@
 <template>
 	<view class="">
-		<u-section title="面试题" :right="false"></u-section>
+		<u-section title="技术" :right="false"></u-section>
 		<text class="t-icon-shipin"></text>
 		<u-grid :col="3">
 			<u-grid-item v-for="item in interviewList" :key="item.id" @click="orderTo(item)">
@@ -26,7 +26,7 @@
 		reactive,
 	} from 'vue'
 
-	/* 面试题 */
+	/* 技术 */
 	let interviewList = reactive([{
 			id: 0,
 			title: 'HTML',
@@ -104,8 +104,6 @@
 		}
 
 	}
-
-
 	//底部tap
 	let list = ref([{
 			iconPath: "home",
