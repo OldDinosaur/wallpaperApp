@@ -2,6 +2,8 @@
   "pages": [
     "pages/home/index",
     "pages/home/wall/index",
+    "pages/home/video/index",
+    "pages/webview/webview",
     "pages/sort/index",
     "pages/my/index",
     "pages/common/moreList"

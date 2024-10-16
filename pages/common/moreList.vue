@@ -45,11 +45,22 @@
 	import {
 		onLoad,
 		onPageScroll,
-		onReachBottom
+		onReachBottom,
+		onNavigationBarButtonTap
 	} from '@dcloudio/uni-app';
 	import {
 		ref
 	} from 'vue';
+	/*回到首页 */
+	onNavigationBarButtonTap((e)=>{
+		if(e.type == 'home'){
+			uni.navigateBack({
+			    url: '/pages/home/index'
+			});
+		}
+	})
+	
+	
 	const uWaterfall1 = ref(null);
 	let tab = ref(null)
 	let scrollTop = ref(0)

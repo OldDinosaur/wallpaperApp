@@ -2,7 +2,11 @@
 	<view class="">
 		<u-grid :col="3">
 			<u-grid-item v-for="item in list" :key="item.id" @click="orderTo(item)">
-				<u-image mode="widthFix" :src="item.icon" style="padding: 20rpx;"></u-image>
+				<u-image mode="heightFix" height="200rpx" :src="item.icon" class="item-c" :lazy-load="true">
+					<template v-slot:loading>
+						<u-loading></u-loading>
+					</template>
+				</u-image>
 				<view class="grid-text">{{item.title}}</view>
 			</u-grid-item>
 		</u-grid>
@@ -10,7 +14,7 @@
 </template>
 
 <script setup>
-	import { 
+	import {
 		ref,
 		reactive,
 	} from 'vue'
@@ -34,6 +38,12 @@
 		},
 		{
 			id: 3,
+			title: '大米星球',
+			icon: 'https://f746f90.sdljwomen.com/storage/images/2024-04-23/f1/347aea16ffa9a312dd85f769cda603d5.webp',
+			url: '/pages/webview/webview?url=' + encodeURIComponent('https://dmq9x7.wiki/')
+		},
+		{
+			id: 4,
 			title: '菜狗',
 			icon: 'https://www.dddog.cn/movie/img/ico.png',
 			url: '/pages/webview/webview?url=' + encodeURIComponent('https://www.dddog.cn/movie/')
@@ -58,5 +68,11 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	.item-c {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 20rpx;
+	}
 </style>

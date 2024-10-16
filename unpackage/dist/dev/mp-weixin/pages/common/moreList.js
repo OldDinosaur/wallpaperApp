@@ -18,6 +18,13 @@ if (!Math) {
 const _sfc_main = {
   __name: "moreList",
   setup(__props) {
+    common_vendor.onNavigationBarButtonTap((e) => {
+      if (e.type == "home") {
+        common_vendor.index.navigateBack({
+          url: "/pages/home/index"
+        });
+      }
+    });
     const uWaterfall1 = common_vendor.ref(null);
     let tab = common_vendor.ref(null);
     let scrollTop = common_vendor.ref(0);

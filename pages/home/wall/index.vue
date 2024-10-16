@@ -40,7 +40,6 @@
 		defineExpose,
 		nextTick
 	} from 'vue'
-
 	let loading = ref(false)
 	let keyword = ref('爆照的老恐龙')
 	let swiper1Ref = ref()

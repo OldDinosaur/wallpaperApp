@@ -5,7 +5,6 @@
     "u-section": "../../uni_modules/vk-uview-ui/components/u-section/u-section",
     "u-grid-item": "../../uni_modules/vk-uview-ui/components/u-grid-item/u-grid-item",
     "u-grid": "../../uni_modules/vk-uview-ui/components/u-grid/u-grid",
-    "u-icon": "../../uni_modules/vk-uview-ui/components/u-icon/u-icon",
     "u-tabbar": "../../uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar"
   }
 }

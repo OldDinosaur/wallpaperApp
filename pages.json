@@ -12,6 +12,7 @@
 			"style": {
 				"navigationBarTitleText": "壁纸",
 				"enablePullDownRefresh": true
+
 			}
 		}, {
 			"path": "pages/home/video/index",
@@ -23,8 +24,15 @@
 		{
 			"path": "pages/webview/webview",
 			"style": {
-				"navigationBarTitleText": "外部",
-				"enablePullDownRefresh": false
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"type": "home"
+						}]
+					}
+				}
 			}
 		},
 		{
@@ -42,7 +50,14 @@
 		{
 			"path": "pages/common/moreList",
 			"style": {
-				"navigationBarTitleText": "更多"
+				"navigationBarTitleText": "更多",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"type": "home"
+						}]
+					}
+				}
 			}
 		}
 	],
@@ -51,6 +66,7 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+
 	},
 	"tabBar": {
 		"color": "#909399",

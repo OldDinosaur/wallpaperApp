@@ -1,5 +1,5 @@
 <template>
-	<view class="">
+	<view class="home">
 		<u-section title="技术" :right="false"></u-section>
 		<text class="t-icon-shipin"></text>
 		<u-grid :col="3">
@@ -17,7 +17,6 @@
 		</u-grid>
 		<u-tabbar v-model="current" :list="list"></u-tabbar>
 	</view>
-
 </template>
 
 <script setup>
@@ -131,6 +130,9 @@
 </script>
 
 <style scoped lang="scss">
+	.home{
+		overflow: auto;
+	}
 	.t-icon {
 		width: 80rpx;
 		height: 80rpx;

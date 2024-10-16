@@ -4,17 +4,15 @@ if (!Array) {
   const _easycom_u_section2 = common_vendor.resolveComponent("u-section");
   const _easycom_u_grid_item2 = common_vendor.resolveComponent("u-grid-item");
   const _easycom_u_grid2 = common_vendor.resolveComponent("u-grid");
-  const _easycom_u_icon2 = common_vendor.resolveComponent("u-icon");
   const _easycom_u_tabbar2 = common_vendor.resolveComponent("u-tabbar");
-  (_easycom_u_section2 + _easycom_u_grid_item2 + _easycom_u_grid2 + _easycom_u_icon2 + _easycom_u_tabbar2)();
+  (_easycom_u_section2 + _easycom_u_grid_item2 + _easycom_u_grid2 + _easycom_u_tabbar2)();
 }
 const _easycom_u_section = () => "../../uni_modules/vk-uview-ui/components/u-section/u-section.js";
 const _easycom_u_grid_item = () => "../../uni_modules/vk-uview-ui/components/u-grid-item/u-grid-item.js";
 const _easycom_u_grid = () => "../../uni_modules/vk-uview-ui/components/u-grid/u-grid.js";
-const _easycom_u_icon = () => "../../uni_modules/vk-uview-ui/components/u-icon/u-icon.js";
 const _easycom_u_tabbar = () => "../../uni_modules/vk-uview-ui/components/u-tabbar/u-tabbar.js";
 if (!Math) {
-  (_easycom_u_section + _easycom_u_grid_item + _easycom_u_grid + _easycom_u_icon + _easycom_u_tabbar)();
+  (_easycom_u_section + _easycom_u_grid_item + _easycom_u_grid + _easycom_u_tabbar)();
 }
 const _sfc_main = {
   __name: "index",
@@ -23,33 +21,76 @@ const _sfc_main = {
       {
         id: 0,
         title: "HTML",
-        icon: "html"
+        icon: "t-icon-html"
       },
       {
         id: 1,
         title: "JS",
-        icon: "js"
+        icon: "t-icon-js"
       },
       {
         id: 2,
         title: "CSS",
-        icon: "css"
+        icon: "t-icon-css"
+      },
+      {
+        id: 3,
+        title: "VUE",
+        icon: "t-icon-Vue"
+      },
+      {
+        id: 4,
+        title: "算法",
+        icon: "t-icon-suanfaku"
+      },
+      {
+        id: 5,
+        title: "nodejs",
+        icon: "t-icon-Nodejs"
+      },
+      {
+        id: 6,
+        title: "浏览器",
+        icon: "t-icon-liulanqi1"
+      },
+      {
+        id: 7,
+        title: "其他",
+        icon: "t-icon-qitafuwu"
       }
     ]);
-    common_vendor.reactive([
+    let orderList = common_vendor.reactive([
       {
         id: 0,
-        title: "壁纸"
+        title: "壁纸",
+        icon: "t-icon-tupian1",
+        url: "/pages/home/wall/index"
       },
       {
         id: 1,
-        title: "视频"
+        title: "视频",
+        icon: "t-icon-shipin",
+        url: "/pages/home/video/index"
+        // url: '/pages/webview/webview?url=' + encodeURIComponent('https://www.agedm.org/')
       },
       {
         id: 2,
-        title: "其他"
+        title: "其他",
+        icon: "t-icon-qitafuwu"
       }
     ]);
+    const orderTo = (item) => {
+      if (item.url) {
+        common_vendor.index.navigateTo({
+          url: item.url,
+          success: function(res) {
+            res.eventChannel.emit("acceptDataFromOpenerPage", {
+              tab: item.tab
+            });
+          }
+        });
+      }
+    };
     let list = common_vendor.ref([
       {
         iconPath: "home",
@@ -77,14 +118,15 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          title: "面试题",
+          title: "技术",
           right: false
         }),
         b: common_vendor.f(common_vendor.unref(interviewList), (item, k0, i0) => {
           return {
-            a: common_vendor.t(item.title),
+            a: common_vendor.n(item.icon),
             b: item.id,
-            c: "4978fed5-2-" + i0 + ",4978fed5-1"
+            c: common_vendor.o(($event) => orderTo(item), item.id),
+            d: "4978fed5-2-" + i0 + ",4978fed5-1"
           };
         }),
         c: common_vendor.p({
@@ -94,23 +136,19 @@ const _sfc_main = {
           title: "其他",
           right: false
         }),
-        e: common_vendor.p({
-          name: "photo",
-          size: 46
+        e: common_vendor.f(common_vendor.unref(orderList), (item, k0, i0) => {
+          return {
+            a: common_vendor.n(item.icon),
+            b: item.id,
+            c: common_vendor.o(($event) => orderTo(item), item.id),
+            d: "4978fed5-5-" + i0 + ",4978fed5-4"
+          };
         }),
         f: common_vendor.p({
-          name: "lock",
-          size: 46
-        }),
-        g: common_vendor.p({
-          name: "lock",
-          size: 46
-        }),
-        h: common_vendor.p({
           col: 3
         }),
-        i: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
-        j: common_vendor.p({
+        g: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
+        h: common_vendor.p({
           list: common_vendor.unref(list),
           modelValue: common_vendor.unref(current)
         })

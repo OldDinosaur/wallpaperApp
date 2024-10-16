@@ -23,6 +23,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.home.data-v-4978fed5 {
+  overflow: auto;
+}
+.t-icon.data-v-4978fed5 {
+  width: 80rpx;
+  height: 80rpx;
+}
 .grid-text.data-v-4978fed5 {
   font-size: 28rpx;
   margin-top: 4rpx;

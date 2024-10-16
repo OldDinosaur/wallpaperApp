@@ -31,6 +31,8 @@ require("./uni_modules/vk-uview-ui/libs/config/zIndex.js");
 if (!Math) {
   "./pages/home/index.js";
   "./pages/home/wall/index.js";
+  "./pages/home/video/index.js";
+  "./pages/webview/webview.js";
   "./pages/sort/index.js";
   "./pages/my/index.js";
   "./pages/common/moreList.js";
