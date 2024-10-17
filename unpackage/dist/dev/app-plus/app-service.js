@@ -2923,9 +2923,18 @@ if (uni.restoreGlobal) {
       });
       onNavigationBarButtonTap((e) => {
         if (e.type == "home") {
-          uni.navigateBack({
-            url: "/pages/home/video/index"
-          });
+          let pages = getCurrentPages();
+          let page = pages[pages.length - 1];
+          let currentWebview = page.$getAppWebview();
+          let children = currentWebview.children();
+          if (children.length === 0) {
+            uni.navigateBack();
+          } else {
+            children[0].close();
+            setTimeout(() => {
+              uni.navigateBack();
+            }, 80);
+          }
         }
       });
       return (_ctx, _cache) => {
@@ -3796,9 +3805,8 @@ if (uni.restoreGlobal) {
     setup(__props) {
       onNavigationBarButtonTap((e) => {
         if (e.type == "home") {
-          uni.navigateBack({
-            url: "/pages/home/index"
-          });
+          getCurrentPages();
+          uni.navigateBack();
         }
       });
       const uWaterfall1 = vue.ref(null);
@@ -3834,7 +3842,7 @@ if (uni.restoreGlobal) {
           "included_tags": tab.value,
           "limit": 10
         }).then((res) => {
-          formatAppLog("log", "at pages/common/moreList.vue:99", res);
+          formatAppLog("log", "at pages/common/moreList.vue:100", res);
           for (let pic of res.images) {
             flowList.value.push(pic);
           }
@@ -3854,7 +3862,7 @@ if (uni.restoreGlobal) {
               }
             },
             fail: function(err) {
-              formatAppLog("log", "at pages/common/moreList.vue:118", err.errMsg);
+              formatAppLog("log", "at pages/common/moreList.vue:119", err.errMsg);
             }
           }
         });

@@ -143,5 +143,11 @@
       "selected": 0
     }
   },
+  "screenOrientation": [
+    "portrait-primary",
+    "portrait-secondary",
+    "landscape-primary",
+    "landscape-secondary"
+  ],
   "launch_path": "__uniappview.html"
 }

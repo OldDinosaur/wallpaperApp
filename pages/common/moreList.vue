@@ -4,7 +4,8 @@
 			<template v-slot:left="{leftList}">
 				<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
 					<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
-					<u-lazy-load threshold="-450" border-radius="10" :image="item.url" :index="index" @click="showPic(item.url)"></u-lazy-load>
+					<u-lazy-load threshold="-450" border-radius="10" :image="item.url" :index="index"
+						@click="showPic(item.url)"></u-lazy-load>
 					<view class="demo-tag">
 						<!-- 	<view class="demo-tag-owner">
 							自营
@@ -20,7 +21,8 @@
 			</template>
 			<template v-slot:right="{rightList}">
 				<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
-					<u-lazy-load threshold="-450" border-radius="10" :image="item.url" :index="index" @click="showPic(item.url)"></u-lazy-load>
+					<u-lazy-load threshold="-450" border-radius="10" :image="item.url" :index="index"
+						@click="showPic(item.url)"></u-lazy-load>
 					<view class="demo-tag">
 						<!-- <view class="demo-tag-owner">
 							自营
@@ -52,15 +54,14 @@
 		ref
 	} from 'vue';
 	/*回到首页 */
-	onNavigationBarButtonTap((e)=>{
-		if(e.type == 'home'){
-			uni.navigateBack({
-			    url: '/pages/home/index'
-			});
+	onNavigationBarButtonTap((e) => {
+		if (e.type == 'home') {
+			let page = getCurrentPages()
+			uni.navigateBack();
 		}
 	})
-	
-	
+
+
 	const uWaterfall1 = ref(null);
 	let tab = ref(null)
 	let scrollTop = ref(0)
