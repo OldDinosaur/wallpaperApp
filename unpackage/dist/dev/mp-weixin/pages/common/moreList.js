@@ -20,9 +20,8 @@ const _sfc_main = {
   setup(__props) {
     common_vendor.onNavigationBarButtonTap((e) => {
       if (e.type == "home") {
-        common_vendor.index.navigateBack({
-          url: "/pages/home/index"
-        });
+        getCurrentPages();
+        common_vendor.index.navigateBack();
       }
     });
     const uWaterfall1 = common_vendor.ref(null);

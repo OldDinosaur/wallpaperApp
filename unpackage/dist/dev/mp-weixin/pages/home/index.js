@@ -17,6 +17,14 @@ if (!Math) {
 const _sfc_main = {
   __name: "index",
   setup(__props) {
+    common_vendor.index.request({
+      url: "/data/list",
+      method: "GET"
+    }).then((res) => {
+      console.log(res.data);
+    }).catch((err) => {
+      console.error(err);
+    });
     let interviewList = common_vendor.reactive([
       {
         id: 0,

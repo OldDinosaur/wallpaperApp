@@ -2,7 +2,8 @@ import App from './App'
 
 // 引入 uView UI
 import uView from './uni_modules/vk-uview-ui';
-
+// 引入mock
+import './mock';
 // #ifndef VUE3
 import Vue from 'vue'
 import './uni.promisify.adaptor'

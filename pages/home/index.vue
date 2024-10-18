@@ -25,6 +25,14 @@
 		reactive,
 	} from 'vue'
 
+	uni.request({
+		url: '/test/test', 
+		method: 'GET',
+	}).then(res => {
+		console.log(res.data); // 这里将会输出模拟的数据
+	}).catch(err => {
+		console.error(err);
+	})
 	/* 技术 */
 	let interviewList = reactive([{
 			id: 0,
@@ -50,7 +58,7 @@
 			id: 4,
 			title: '算法',
 			icon: 't-icon-suanfaku'
-		},	
+		},
 		{
 			id: 5,
 			title: 'nodejs',
@@ -80,7 +88,7 @@
 			title: '视频',
 			icon: 't-icon-shipin',
 			url: '/pages/home/video/index'
-			 // url: '/pages/webview/webview?url=' + encodeURIComponent('https://www.agedm.org/')
+			// url: '/pages/webview/webview?url=' + encodeURIComponent('https://www.agedm.org/')
 		},
 		{
 			id: 2,
@@ -130,9 +138,10 @@
 </script>
 
 <style scoped lang="scss">
-	.home{
+	.home {
 		overflow: auto;
 	}
+
 	.t-icon {
 		width: 80rpx;
 		height: 80rpx;
