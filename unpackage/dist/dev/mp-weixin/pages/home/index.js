@@ -18,7 +18,7 @@ const _sfc_main = {
   __name: "index",
   setup(__props) {
     common_vendor.index.request({
-      url: "/data/list",
+      url: "/test/test",
       method: "GET"
     }).then((res) => {
       console.log(res.data);
@@ -67,6 +67,12 @@ const _sfc_main = {
         icon: "t-icon-qitafuwu"
       }
     ]);
+    let exampleList = common_vendor.reactive([{
+      id: 0,
+      title: "其他",
+      icon: "t-icon-qitafuwu",
+      url: "/pages/home/example/index"
+    }]);
     let orderList = common_vendor.reactive([
       {
         id: 0,
@@ -141,10 +147,10 @@ const _sfc_main = {
           col: 3
         }),
         d: common_vendor.p({
-          title: "其他",
+          title: "实例",
           right: false
         }),
-        e: common_vendor.f(common_vendor.unref(orderList), (item, k0, i0) => {
+        e: common_vendor.f(common_vendor.unref(exampleList), (item, k0, i0) => {
           return {
             a: common_vendor.n(item.icon),
             b: item.id,
@@ -155,8 +161,23 @@ const _sfc_main = {
         f: common_vendor.p({
           col: 3
         }),
-        g: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
-        h: common_vendor.p({
+        g: common_vendor.p({
+          title: "其他",
+          right: false
+        }),
+        h: common_vendor.f(common_vendor.unref(orderList), (item, k0, i0) => {
+          return {
+            a: common_vendor.n(item.icon),
+            b: item.id,
+            c: common_vendor.o(($event) => orderTo(item), item.id),
+            d: "4978fed5-8-" + i0 + ",4978fed5-7"
+          };
+        }),
+        i: common_vendor.p({
+          col: 3
+        }),
+        j: common_vendor.o(($event) => common_vendor.isRef(current) ? current.value = $event : current = $event),
+        k: common_vendor.p({
           list: common_vendor.unref(list),
           modelValue: common_vendor.unref(current)
         })

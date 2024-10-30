@@ -8,11 +8,25 @@
 			}
 		},
 		{
+			"path": "pages/home/example/index",
+			"style": {
+				"navigationBarTitleText": "实例",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/home/example/tricks/index",
+			"style": {
+				"navigationBarTitleText": "搞怪",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/home/wall/index",
 			"style": {
 				"navigationBarTitleText": "壁纸",
 				"enablePullDownRefresh": true
-
+		
 			}
 		}, {
 			"path": "pages/home/video/index",

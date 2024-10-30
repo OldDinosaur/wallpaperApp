@@ -8,6 +8,13 @@
 				<!-- <view class="grid-text">{{item.title}}</view> -->
 			</u-grid-item>
 		</u-grid>
+		<u-section title="实例" :right="false"></u-section>
+		<u-grid :col="3">
+			<u-grid-item v-for="item in exampleList" :key="item.id" @click="orderTo(item)">
+				<text class="t-icon" :class="item.icon"></text>
+				<!-- <view class="grid-text">{{item.title}}</view> -->
+			</u-grid-item>
+		</u-grid>
 		<u-section title="其他" :right="false"></u-section>
 		<u-grid :col="3">
 			<u-grid-item v-for="item in orderList" :key="item.id" @click="orderTo(item)">
@@ -25,6 +32,7 @@
 		reactive,
 	} from 'vue'
 
+	/* mock测试，h5中可以，安卓不行 */
 	uni.request({
 		url: '/test/test', 
 		method: 'GET',
@@ -33,6 +41,8 @@
 	}).catch(err => {
 		console.error(err);
 	})
+
+
 	/* 技术 */
 	let interviewList = reactive([{
 			id: 0,
@@ -75,7 +85,13 @@
 			icon: 't-icon-qitafuwu'
 		}
 	])
-
+	/* 实例 */
+	let exampleList = reactive([{
+		id: 0,
+		title: '其他',
+		icon: 't-icon-qitafuwu',
+		url: '/pages/home/example/index'
+	}])
 	/* 其他 */
 	let orderList = reactive([{
 			id: 0,

@@ -51,7 +51,7 @@
 			uni.stopPullDownRefresh();
 		}, 1000);
 	})
-	/* 获取所有标签及其图片 */
+	/* 获取所有标签及其图片 */ 
 	let tags = ref({})
 	let nsfwList = ref([])
 	let versatileList = ref([])

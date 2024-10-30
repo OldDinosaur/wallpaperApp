@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/example/index",
+    "pages/home/example/tricks/index",
     "pages/home/wall/index",
     "pages/home/video/index",
     "pages/webview/webview",
