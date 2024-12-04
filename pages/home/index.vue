@@ -31,7 +31,21 @@
 		ref,
 		reactive,
 	} from 'vue'
-
+	// const n1 = async ()=>{
+	// 	console.log('saa')
+	// 	const s1  = await new Promise((resolve,reactive)=>resolve('s1'))
+	// 	console.log(s1)
+	// 	console.log(111)
+	// } 	
+	// const n2 =  ()=>{
+	// 	console.log('sbb')
+	// 	 new Promise((resolve,reactive)=>resolve('s2')).then((res)=>{
+	// 		 console.log(res)
+	// 	 })
+	// 	console.log(222)
+	// }			  
+	// n1()
+	// n2()
 	/* mock测试，h5中可以，安卓不行 */
 	uni.request({
 		url: '/test/test', 
@@ -52,7 +66,8 @@
 		{
 			id: 1,
 			title: 'JS',
-			icon: 't-icon-js'
+			icon: 't-icon-js',
+			url: '/pages/home/interview/js-int/index'
 		},
 		{
 			id: 2,

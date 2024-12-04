@@ -8,6 +8,13 @@
 			}
 		},
 		{
+			"path": "pages/home/interview/js-int/index",
+			"style": {
+				"navigationBarTitleText": "JS",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/home/example/index",
 			"style": {
 				"navigationBarTitleText": "实例",
@@ -26,7 +33,7 @@
 			"style": {
 				"navigationBarTitleText": "壁纸",
 				"enablePullDownRefresh": true
-		
+
 			}
 		}, {
 			"path": "pages/home/video/index",

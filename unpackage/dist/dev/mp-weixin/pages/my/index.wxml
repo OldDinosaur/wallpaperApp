@@ -1,1 +1,0 @@
-<view><view class="u-page text-area"> 关于：数据均来自网路提供，如有侵权，请联系开发者(1850110843@qq.com)删除。 <view style="height:100rpx"></view></view><u-tabbar wx:if="{{b}}" u-i="5884c7f8-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></u-tabbar></view>
