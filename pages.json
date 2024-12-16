@@ -15,6 +15,13 @@
 			}
 		},
 		{
+			"path": "pages/home/interview/sf-int/index",
+			"style": {
+				"navigationBarTitleText": "算法",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/home/example/index",
 			"style": {
 				"navigationBarTitleText": "实例",

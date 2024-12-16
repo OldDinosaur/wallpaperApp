@@ -82,7 +82,8 @@
 		{
 			id: 4,
 			title: '算法',
-			icon: 't-icon-suanfaku'
+			icon: 't-icon-suanfaku',
+			url: '/pages/home/interview/sf-int/index'
 		},
 		{
 			id: 5,

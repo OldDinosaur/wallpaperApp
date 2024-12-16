@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/interview/js-int/index",
     "pages/home/example/index",
     "pages/home/example/tricks/index",
     "pages/home/wall/index",
